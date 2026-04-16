@@ -120,6 +120,7 @@
       <li><strong>Verfügbarkeiten / Terminwünsche</strong> – für die automatische Stundenplanung</li>
       <li><strong>Fahrstunden-Fortschritt</strong> – Sonderfahrten (Überland, Autobahn, Nacht)</li>
       <li><strong>Push-Notification Token</strong> – für Benachrichtigungen auf dem Gerät</li>
+      <li><strong>Kalender-Event-IDs</strong> – optional, nur bei aktiviertem Kalender-Sync: geräteinterne Referenz-IDs auf Kalendereinträge, gespeichert in der App-Datenbank zur Verwaltung (keine Kalenderinhalte Dritter werden gelesen oder übertragen)</li>
     </ul>
   </div>
 
@@ -134,6 +135,7 @@
       <li>Versand von Push-Benachrichtigungen über neue oder geänderte Termine</li>
       <li>Kommunikation zwischen Fahrschülern und Fahrlehrern</li>
       <li>Verfolgung des Ausbildungsfortschritts</li>
+      <li>Synchronisation von Fahrstunden mit dem Kalender des Geräts (optional, nur bei aktiviertem Kalender-Sync)</li>
     </ul>
     <p>Eine Weitergabe an Dritte zu Werbezwecken findet nicht statt.</p>
   </div>
@@ -190,22 +192,53 @@
     </p>
   </div>
 
+  <!-- KALENDER-SYNC -->
+  <div class="card">
+    <span class="badge">Kalender-Sync</span>
+    <h2>8. Kalender-Synchronisation</h2>
+    <p>
+      Die App bietet optional die Möglichkeit, Fahrstunden mit dem nativen Kalender deines Geräts
+      (iOS Kalender bzw. Google Kalender auf Android) zu synchronisieren. Diese Funktion ist
+      standardmäßig deaktiviert und kann in den Profileinstellungen aktiviert werden.
+    </p>
+    <p>
+      Bei Aktivierung des Kalender-Sync gilt Folgendes:
+    </p>
+    <ul>
+      <li>Die App fordert die Berechtigung an, Kalendereinträge zu erstellen, zu bearbeiten und zu löschen.</li>
+      <li>Es wird ein eigener Kalender „Fahrschul-Planer" auf deinem Gerät angelegt.</li>
+      <li>Fahrstunden werden als Kalendereinträge mit Titel, Zeit, Ort und Notiz (Fahrlehrer) eingetragen.</li>
+      <li>Die internen Referenz-IDs dieser Kalendereinträge werden in der App-Datenbank gespeichert, um spätere Aktualisierungen oder Löschungen zu ermöglichen.</li>
+      <li>Inhalte anderer Kalender auf deinem Gerät werden von der App nicht gelesen, nicht gespeichert und nicht übertragen.</li>
+    </ul>
+    <p>
+      Du kannst den Kalender-Sync jederzeit in den Profileinstellungen der App deaktivieren.
+      Dabei werden alle gespeicherten Kalender-Event-IDs aus der Datenbank entfernt.
+      Die auf deinem Gerät erstellten Kalendereinträge bleiben erhalten und können manuell
+      über die Kalender-App deines Geräts gelöscht werden.
+    </p>
+    <p>
+      Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung).
+    </p>
+  </div>
+
   <!-- RECHTSGRUNDLAGE -->
   <div class="card">
     <span class="badge">Rechtsgrundlage</span>
-    <h2>8. Rechtsgrundlage der Verarbeitung</h2>
+    <h2>9. Rechtsgrundlage der Verarbeitung</h2>
     <p>
       Die Verarbeitung personenbezogener Daten erfolgt auf Grundlage von
       Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung), da die Datenverarbeitung
       zur Erbringung der App-Funktionen erforderlich ist, sowie auf Grundlage
-      von Art. 6 Abs. 1 lit. a DSGVO (Einwilligung) für Push-Benachrichtigungen.
+      von Art. 6 Abs. 1 lit. a DSGVO (Einwilligung) für Push-Benachrichtigungen
+      und den optionalen Kalender-Sync.
     </p>
   </div>
 
   <!-- BETROFFENENRECHTE -->
   <div class="card">
     <span class="badge">Deine Rechte</span>
-    <h2>9. Deine Rechte</h2>
+    <h2>10. Deine Rechte</h2>
     <p>Du hast folgende Rechte bezüglich deiner personenbezogenen Daten:</p>
     <ul>
       <li><strong>Auskunft</strong> – Welche Daten über dich gespeichert sind (Art. 15 DSGVO)</li>
@@ -230,7 +263,7 @@
   <!-- SPEICHERDAUER -->
   <div class="card">
     <span class="badge">Speicherdauer</span>
-    <h2>10. Speicherdauer</h2>
+    <h2>11. Speicherdauer</h2>
     <p>
       Personenbezogene Daten werden nur so lange gespeichert, wie es für die
       Zwecke der App erforderlich ist. Nach Löschung des Nutzerkontos werden
@@ -243,7 +276,7 @@
   <!-- MINDERJÄHRIGE -->
   <div class="card">
     <span class="badge">Minderjährige</span>
-    <h2>11. Nutzung durch Minderjährige</h2>
+    <h2>12. Nutzung durch Minderjährige</h2>
     <p>
       Da Fahrschüler teilweise minderjährig sein können (ab 16 Jahren für
       begleitetes Fahren), stimmen Minderjährige der Datenverarbeitung mit
@@ -256,7 +289,7 @@
   <!-- ÄNDERUNGEN -->
   <div class="card">
     <span class="badge">Aktualisierungen</span>
-    <h2>12. Änderungen dieser Datenschutzerklärung</h2>
+    <h2>13. Änderungen dieser Datenschutzerklärung</h2>
     <p>
       Diese Datenschutzerklärung kann bei Bedarf angepasst werden, z.B. bei
       neuen App-Funktionen oder gesetzlichen Änderungen. Die aktuelle Version
@@ -269,7 +302,7 @@
   <!-- KONTAKT -->
   <div class="card">
     <span class="badge">Kontakt</span>
-    <h2>13. Kontakt &amp; Impressum</h2>
+    <h2>14. Kontakt &amp; Impressum</h2>
     <p>Bei Fragen zur Datenschutzerklärung oder zur Verarbeitung deiner Daten:</p>
     <p>
       <strong>Lukas Dombert</strong><br />
