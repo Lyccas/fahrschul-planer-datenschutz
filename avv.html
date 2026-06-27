@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Auftragsverarbeitungsvertrag (AVV) – Fahrschul-Planer</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f8fafc;
+      color: #1e293b;
+      line-height: 1.7;
+    }
+    header {
+      background: #2350b8;
+      color: white;
+      padding: 48px 24px 40px;
+      text-align: center;
+    }
+    header .app-name {
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-bottom: 8px;
+    }
+    header h1 {
+      font-size: 30px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+    header p {
+      margin-top: 8px;
+      font-size: 14px;
+      opacity: 0.7;
+    }
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+    .section {
+      background: white;
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 16px;
+      border: 1px solid #e2e8f0;
+    }
+    .section h2 {
+      font-size: 15px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #2350b8;
+      margin-bottom: 12px;
+    }
+    .section p { font-size: 15px; color: #475569; margin-bottom: 10px; }
+    .section p:last-child { margin-bottom: 0; }
+    .section ul { padding-left: 20px; color: #475569; font-size: 15px; }
+    .section ul li { margin-bottom: 6px; }
+    .section table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+      font-size: 14px;
+    }
+    .section table th, .section table td {
+      text-align: left;
+      padding: 6px 8px;
+      border-bottom: 1px solid #e2e8f0;
+      color: #475569;
+      vertical-align: top;
+    }
+    .section table th { color: #2350b8; font-weight: 700; }
+    .meta { font-size: 13px; color: #94a3b8; text-align: center; margin-top: 32px; }
+    a { color: #2350b8; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="app-name">Fahrschul-Planer</div>
+  <h1>Auftragsverarbeitungsvertrag (AVV)</h1>
+  <p>gemäß Art. 28 DSGVO · Stand: Juni 2026</p>
+</header>
+
+<main>
+
+  <div class="section">
+    <h2>Vertragsparteien</h2>
+    <p>
+      <strong>Auftragsverarbeiter:</strong> Lukas Dombert, Erich-Kästner-Straße 6a, 65232 Taunusstein
+      (Anbieter der Software „Fahrschul-Planer", nachfolgend „Auftragsverarbeiter")
+    </p>
+    <p>
+      <strong>Verantwortlicher:</strong> Die bei der Registrierung unter /register angegebene Fahrschule
+      (nachfolgend „Verantwortlicher" oder „Kunde")
+    </p>
+    <p>
+      Dieser Vertrag wird durch das Setzen des Häkchens „Ich akzeptiere … den Auftragsverarbeitungsvertrag (AVV)"
+      im Registrierungsformular wirksam geschlossen und ergänzt die Allgemeinen Geschäftsbedingungen des Anbieters.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>§ 1 Gegenstand und Dauer</h2>
+    <p>
+      Gegenstand dieses Vertrags ist die Verarbeitung personenbezogener Daten von Fahrlehrern, Mitarbeitern
+      und Fahrschülern des Verantwortlichen durch den Auftragsverarbeiter im Rahmen der Bereitstellung der
+      Software „Fahrschul-Planer" (App und Web-Dashboard).
+    </p>
+    <p>
+      Die Laufzeit dieses Vertrags entspricht der Laufzeit des Hauptvertrags (Abonnement bzw. Lifetime-Zugang)
+      zwischen den Parteien.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>§ 2 Art und Zweck der Verarbeitung</h2>
+    <p>Die Verarbeitung erfolgt zu folgenden Zwecken:</p>
+    <ul>
+      <li>Verwaltung von Fahrstunden, Terminen und Verfügbarkeiten</li>
+      <li>Automatische Stundenplanung</li>
+      <li>Versand von Push-Benachrichtigungen</li>
+      <li>Verwaltung von Preislisten, Abrechnungen und Zahlungssalden zwischen Fahrschule und Fahrschüler</li>
+      <li>Optionale Synchronisation mit dem Gerätekalender</li>
+      <li>Speicherung und Hosting der Daten in der App-Datenbank (Firebase/Google Cloud)</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>§ 3 Kategorien betroffener Personen und Daten</h2>
+    <p><strong>Betroffene Personen:</strong> Fahrlehrer, Mitarbeiter (Manager/Staff) und Fahrschüler des Verantwortlichen.</p>
+    <p><strong>Datenkategorien:</strong> Name, E-Mail-Adresse, Telefonnummer (optional), Wohnadresse (optional),
+      Geburtsdatum, Verfügbarkeiten/Termine, Ausbildungsfortschritt, Zahlungs- und Abrechnungsdaten
+      (Preislisten, Zahlungen, offene Salden – keine Kartendaten), Push-Notification-Token, optional
+      Kalender-Referenz-IDs.</p>
+  </div>
+
+  <div class="section">
+    <h2>§ 4 Weisungsgebundenheit</h2>
+    <p>
+      Der Auftragsverarbeiter verarbeitet personenbezogene Daten ausschließlich auf dokumentierte Weisung
+      des Verantwortlichen, einschließlich in Bezug auf die Übermittlung an Drittländer, sofern er nicht
+      durch das Recht der Union oder der Mitgliedstaaten dazu verpflichtet ist. In diesem Fall teilt der
+      Auftragsverarbeiter dem Verantwortlichen diese rechtlichen Anforderungen vor der Verarbeitung mit,
+      sofern das betreffende Recht eine solche Mitteilung nicht verbietet.
+    </p>
+    <p>
+      Die Konfiguration und der Funktionsumfang der Software (z. B. aktivierte Module je Tarif) gelten als
+      generelle Weisung des Verantwortlichen im Rahmen des Hauptvertrags.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>§ 5 Vertraulichkeit</h2>
+    <p>
+      Der Auftragsverarbeiter gewährleistet, dass die mit der Verarbeitung der Daten befassten Personen
+      zur Vertraulichkeit verpflichtet wurden oder einer angemessenen gesetzlichen Verschwiegenheitspflicht
+      unterliegen.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>§ 6 Technische und organisatorische Maßnahmen (TOM)</h2>
+    <p>
+      Der Auftragsverarbeiter trifft die in Anlage 1 beschriebenen technischen und organisatorischen
+      Maßnahmen gemäß Art. 32 DSGVO, um ein dem Risiko angemessenes Schutzniveau zu gewährleisten, und passt
+      diese bei Bedarf an den Stand der Technik an.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>§ 7 Unterauftragsverarbeiter</h2>
+    <p>
+      Der Verantwortliche stimmt dem Einsatz folgender Unterauftragsverarbeiter durch den Auftragsverarbeiter zu:
+    </p>
+    <table>
+      <tr><th>Unterauftragsverarbeiter</th><th>Zweck</th><th>Standort</th></tr>
+      <tr><td>Google LLC / Firebase (Google Cloud)</td><td>Hosting, Datenbank (Firestore), Authentifizierung, Push-Benachrichtigungen</td><td>EU (Region europe-west3, Frankfurt)</td></tr>
+      <tr><td>Stripe (Stripe Payments Europe, Ltd. / Stripe, Inc.)</td><td>Zahlungsabwicklung des Abonnements</td><td>Irland (EU) / USA – auf Grundlage von EU-Standardvertragsklauseln</td></tr>
+      <tr><td>Vercel Inc.</td><td>Hosting der Web-Anwendung (Landingpage, Dashboard)</td><td>EU/USA – auf Grundlage von EU-Standardvertragsklauseln</td></tr>
+      <tr><td>IONOS SE</td><td>Domain-Registrierung/DNS, Hosting geschäftlicher E-Mail-Postfächer</td><td>Deutschland (EU)</td></tr>
+    </table>
+    <p>
+      Der Auftragsverarbeiter informiert den Verantwortlichen über die Hinzuziehung oder Ersetzung weiterer
+      Unterauftragsverarbeiter, sodass der Verantwortliche die Möglichkeit hat, Einspruch zu erheben.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>§ 8 Unterstützung des Verantwortlichen</h2>
+    <p>
+      Der Auftragsverarbeiter unterstützt den Verantwortlichen im Rahmen seiner Möglichkeiten bei der
+      Beantwortung von Anträgen auf Wahrnehmung der Betroffenenrechte (Art. 15–22 DSGVO) sowie bei der
+      Einhaltung der in Art. 32 bis 36 DSGVO genannten Pflichten (u. a. Datensicherheit, Meldung von
+      Datenschutzverletzungen, Datenschutz-Folgenabschätzung).
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>§ 9 Meldung von Datenschutzverletzungen</h2>
+    <p>
+      Der Auftragsverarbeiter meldet dem Verantwortlichen Verletzungen des Schutzes personenbezogener
+      Daten unverzüglich, spätestens jedoch innerhalb von 48 Stunden nach Kenntniserlangung, und unterstützt
+      ihn bei der Erfüllung etwaiger Meldepflichten gegenüber Aufsichtsbehörden und Betroffenen.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>§ 10 Löschung und Rückgabe</h2>
+    <p>
+      Nach Beendigung der Erbringung der Verarbeitungsleistungen löscht der Auftragsverarbeiter alle
+      personenbezogenen Daten, die im Auftrag des Verantwortlichen verarbeitet wurden, oder gibt sie auf
+      Wunsch zurück, sofern nicht eine gesetzliche Verpflichtung zur weiteren Speicherung besteht
+      (z. B. handels- und steuerrechtliche Aufbewahrungsfristen für Rechnungsdaten, § 147 AO).
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>§ 11 Kontroll- und Nachweisrechte</h2>
+    <p>
+      Der Auftragsverarbeiter stellt dem Verantwortlichen auf Anfrage alle erforderlichen Informationen
+      zum Nachweis der Einhaltung der in diesem Vertrag niedergelegten Pflichten zur Verfügung und
+      ermöglicht in zumutbarem Rahmen Überprüfungen, einschließlich Inspektionen.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>§ 12 Haftung</h2>
+    <p>
+      Es gelten die Haftungsregelungen aus Art. 82 DSGVO sowie ergänzend die Haftungsbeschränkungen der
+      Allgemeinen Geschäftsbedingungen des Auftragsverarbeiters, soweit gesetzlich zulässig.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>§ 13 Schlussbestimmungen</h2>
+    <p>
+      Es gilt das Recht der Bundesrepublik Deutschland. Sollten einzelne Bestimmungen dieses Vertrags
+      unwirksam sein, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>Anlage 1: Technische und organisatorische Maßnahmen (Zusammenfassung)</h2>
+    <ul>
+      <li>Verschlüsselte Datenübertragung (TLS) zwischen App/Web und Servern</li>
+      <li>Zugriffskontrollen über rollenbasierte Berechtigungen (admin/manager/staff/instructor/student) und Firestore-Sicherheitsregeln</li>
+      <li>Speicherung der Daten innerhalb der EU (Firebase-Region europe-west3, Frankfurt)</li>
+      <li>Verschlüsselte Speicherung von Passwörtern (Firebase Authentication)</li>
+      <li>Regelmäßige Aktualisierung der eingesetzten Software-Abhängigkeiten</li>
+      <li>Beschränkung des administrativen Zugriffs auf den Auftragsverarbeiter selbst</li>
+    </ul>
+    <p style="margin-top: 10px; font-size: 13px; color: #94a3b8;">
+      Diese Zusammenfassung kann auf Anfrage des Verantwortlichen detailliert ausgeführt werden.
+    </p>
+  </div>
+
+</main>
+
+<footer>
+</footer>
+
+</body>
+</html>
