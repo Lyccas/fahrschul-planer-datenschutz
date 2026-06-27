@@ -68,6 +68,22 @@
       font-size: 15px;
     }
     .section ul li { margin-bottom: 6px; }
+    .section table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+      font-size: 14px;
+    }
+    .section table th, .section table td {
+      text-align: left;
+      padding: 6px 8px;
+      border-bottom: 1px solid #e2e8f0;
+      color: #475569;
+    }
+    .section table th {
+      color: #2350b8;
+      font-weight: 700;
+    }
     .meta {
       font-size: 13px;
       color: #94a3b8;
@@ -82,30 +98,37 @@
 <header>
   <div class="app-name">Fahrschul-Planer</div>
   <h1>Allgemeine Geschäftsbedingungen</h1>
-  <p>Stand: April 2026</p>
+  <p>Stand: Juni 2026</p>
 </header>
 
 <main>
 
   <div class="section">
     <h2>§ 1 Vertragsgegenstand</h2>
-    <p>Diese Allgemeinen Geschäftsbedingungen (AGB) regeln die Nutzung der App <strong>Fahrschul-Planer</strong>, die von Lukas Dombert (nachfolgend „Anbieter") bereitgestellt wird.</p>
-    <p>Die App ermöglicht die digitale Verwaltung von Fahrstunden zwischen Fahrschulen, Fahrlehrern und Fahrschülern. Sie dient der Terminplanung, Verfügbarkeitsverwaltung und Kommunikation innerhalb einer Fahrschule.</p>
+    <p>Diese Allgemeinen Geschäftsbedingungen (AGB) regeln die Nutzung der Software-as-a-Service-Lösung <strong>Fahrschul-Planer</strong> (App und Web-Dashboard), die von Lukas Dombert (nachfolgend „Anbieter") gegenüber Fahrschulen als Kunden bereitgestellt wird.</p>
+    <p>Der Fahrschul-Planer ermöglicht die digitale Verwaltung von Fahrstunden, Terminen, Preislisten und Zahlungen zwischen Fahrschulen, Fahrlehrern, Mitarbeitern und Fahrschülern. Die Nutzung erfolgt im Rahmen eines kostenpflichtigen Abonnements (§ 5) oder eines Lifetime-Zugangs (§ 7).</p>
   </div>
 
   <div class="section">
-    <h2>§ 2 Nutzungsberechtigung</h2>
+    <h2>§ 2 Vertragspartner und Registrierung</h2>
+    <p>Vertragspartner des Anbieters ist die Fahrschule, die sich über das Registrierungsformular unter <strong>/register</strong> anmeldet (nachfolgend „Kunde"), vertreten durch die registrierende Person (i. d. R. Inhaber/in oder Manager/in).</p>
+    <p>Der Kunde sichert zu, im Rahmen eines Gewerbebetriebs bzw. einer selbstständigen beruflichen Tätigkeit zu handeln (Unternehmer im Sinne von § 14 BGB). Die Registrierung als Privatperson/Verbraucher ist nicht vorgesehen.</p>
+    <p>Vom Kunden eingeladene Fahrlehrer, Mitarbeiter und Fahrschüler (nachfolgend „Nutzer") erhalten einen eigenen, durch den Kunden verwalteten Zugang und sind nicht selbst Vertragspartner des Anbieters für das Abonnement.</p>
+  </div>
+
+  <div class="section">
+    <h2>§ 3 Nutzungsberechtigung</h2>
     <p>Die Nutzung der App ist ausschließlich Personen gestattet, die:</p>
     <ul>
       <li>mindestens 16 Jahre alt sind,</li>
       <li>von einer teilnehmenden Fahrschule eingeladen wurden oder</li>
-      <li>als Fahrschule, Fahrlehrer oder Administrator registriert sind.</li>
+      <li>als Fahrschule, Fahrlehrer, Mitarbeiter oder Administrator registriert sind.</li>
     </ul>
     <p>Durch die Nutzung der App bestätigst du, die vorliegenden AGB sowie die Datenschutzerklärung gelesen und akzeptiert zu haben.</p>
   </div>
 
   <div class="section">
-    <h2>§ 3 Pflichten des Nutzers</h2>
+    <h2>§ 4 Pflichten des Nutzers</h2>
     <p>Als Nutzer verpflichtest du dich:</p>
     <ul>
       <li>keine falschen oder irreführenden Angaben zu machen,</li>
@@ -117,41 +140,77 @@
   </div>
 
   <div class="section">
-    <h2>§ 4 Verfügbarkeit der App</h2>
-    <p>Der Anbieter bemüht sich um eine möglichst unterbrechungsfreie Verfügbarkeit der App, kann jedoch keine 100%ige Verfügbarkeit garantieren.</p>
-    <p>Geplante Wartungsarbeiten, technische Störungen oder Ausfälle beim Cloud-Dienstleister (Firebase / Google) können vorübergehend zu Einschränkungen führen.</p>
+    <h2>§ 5 Preise, Zahlung und Abonnement</h2>
+    <p>Der Fahrschul-Planer wird in folgenden Tarifen angeboten (jeweils zzgl. der gesetzlichen Umsatzsteuer, soweit anwendbar):</p>
+    <table>
+      <tr><th>Tarif</th><th>Monatlich</th><th>Jährlich</th></tr>
+      <tr><td>Starter</td><td>14,99 €</td><td>149,99 €</td></tr>
+      <tr><td>Pro</td><td>29,99 €</td><td>299,99 €</td></tr>
+      <tr><td>Business</td><td>49,99 €</td><td>499,99 €</td></tr>
+    </table>
+    <p>Der jeweils im Tarif enthaltene Funktionsumfang sowie etwaige Nutzer-/Standortgrenzen werden bei der Registrierung bzw. auf der Preisseite des Anbieters ausgewiesen.</p>
+    <p>Die Zahlungsabwicklung erfolgt ausschließlich über unseren Zahlungsdienstleister Stripe. Mit Abschluss der Registrierung und Auswahl eines Tarifs wird der gewählte Betrag im gewählten Abrechnungsintervall (monatlich oder jährlich) im Voraus fällig und automatisch über das beim Anbieter hinterlegte Zahlungsmittel abgebucht.</p>
+    <p>Das Abonnement verlängert sich automatisch um den jeweils gewählten Abrechnungszeitraum, sofern es nicht gemäß § 6 gekündigt wird.</p>
+    <p>Bei Zahlungsverzug oder fehlgeschlagener Zahlung (Status „past_due"/„unpaid") kann der Anbieter den Zugang zur App vorübergehend einschränken oder sperren, bis die ausstehende Zahlung erfolgt ist.</p>
+    <p>Preisänderungen für neue Verträge bleiben vorbehalten und werden auf der Preisseite des Anbieters veröffentlicht. Bereits laufende Abonnements sind von einer solchen Preisänderung nicht automatisch betroffen, solange das Abonnement ununterbrochen fortbesteht.</p>
   </div>
 
   <div class="section">
-    <h2>§ 5 Haftungsausschluss</h2>
+    <h2>§ 6 Vertragslaufzeit und Kündigung</h2>
+    <p>Das Abonnement läuft auf unbestimmte Zeit und verlängert sich automatisch um den gewählten Abrechnungszeitraum (monatlich oder jährlich), sofern es nicht rechtzeitig gekündigt wird.</p>
+    <p>Eine Kündigung ist mit einer Frist von 30 Tagen zum Ende des jeweils laufenden Abrechnungszeitraums möglich. Solange dem Kunden kein automatisiertes Kündigungs-/Kundenportal zur Verfügung steht, erfolgt die Kündigung per E-Mail an <a href="mailto:Lukas.Dombert@gmx.de">Lukas.Dombert@gmx.de</a>.</p>
+    <p>Bereits gezahlte Beträge für den laufenden Abrechnungszeitraum werden bei einer Kündigung nicht anteilig erstattet; der Zugang bleibt bis zum Ende des bezahlten Zeitraums bestehen.</p>
+    <p>Der Anbieter kann das Vertragsverhältnis bei schwerwiegendem oder wiederholtem Verstoß gegen diese AGB außerordentlich kündigen (siehe auch § 10).</p>
+  </div>
+
+  <div class="section">
+    <h2>§ 7 Lifetime-Zugang</h2>
+    <p>Alternativ zum Abonnement kann auf Anfrage ein „Lifetime"-Zugang gegen eine einmalige Zahlung erworben werden. Dieser wird nicht über den Selbst-Checkout, sondern individuell auf Anfrage beim Anbieter vergeben.</p>
+    <p>Der Lifetime-Zugang gilt für den Funktionsumfang sowie die Fahrlehrer-/Standortanzahl des zum Kaufzeitpunkt gebuchten Tarifs (Fair-Use). Wächst die Fahrschule darüber hinaus wesentlich (z. B. deutlich mehr Fahrlehrer oder Standorte als im gebuchten Tarif vorgesehen), ist ein entgeltliches Upgrade auf einen höheren Tarif erforderlich.</p>
+    <p>Der Lifetime-Zugang bezieht sich auf die Nutzung der Software und begründet keinen Anspruch auf eine bestimmte Mindestverfügbarkeit oder den unbegrenzten Fortbestand einzelner Funktionen.</p>
+  </div>
+
+  <div class="section">
+    <h2>§ 8 Verfügbarkeit der App</h2>
+    <p>Der Anbieter bemüht sich um eine möglichst unterbrechungsfreie Verfügbarkeit der App, kann jedoch keine 100%ige Verfügbarkeit garantieren.</p>
+    <p>Geplante Wartungsarbeiten, technische Störungen oder Ausfälle bei Cloud-Dienstleistern (Firebase/Google, Stripe) können vorübergehend zu Einschränkungen führen.</p>
+  </div>
+
+  <div class="section">
+    <h2>§ 9 Haftungsausschluss</h2>
     <p>Der Anbieter haftet nicht für:</p>
     <ul>
       <li>verpasste Fahrstunden aufgrund technischer Störungen,</li>
-      <li>Datenverluste, die durch Drittanbieter (z. B. Firebase) verursacht wurden,</li>
+      <li>Datenverluste oder Zahlungsstörungen, die durch Drittanbieter (z. B. Firebase, Stripe) verursacht wurden,</li>
       <li>Schäden, die durch fehlerhafte Angaben seitens der Nutzer entstehen,</li>
       <li>Schäden durch unbefugten Zugriff auf Nutzerkonten, soweit der Nutzer die Zugangsdaten nicht ausreichend gesichert hat.</li>
     </ul>
   </div>
 
   <div class="section">
-    <h2>§ 6 Konto und Datenlöschung</h2>
-    <p>Nutzer können ihr Konto jederzeit über die App oder durch eine Anfrage an den Anbieter löschen lassen. Alle personenbezogenen Daten werden nach Löschung des Kontos entfernt, soweit keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</p>
+    <h2>§ 10 Konto und Datenlöschung</h2>
+    <p>Nutzer können ihr Konto jederzeit über die App oder durch eine Anfrage an den Anbieter löschen lassen. Alle personenbezogenen Daten werden nach Löschung des Kontos entfernt, soweit keine gesetzlichen Aufbewahrungspflichten (z. B. für Rechnungen) entgegenstehen.</p>
     <p>Der Anbieter behält sich vor, Konten bei Verstoß gegen diese AGB ohne vorherige Ankündigung zu sperren oder zu löschen.</p>
   </div>
 
   <div class="section">
-    <h2>§ 7 Änderungen der AGB</h2>
-    <p>Der Anbieter behält sich vor, diese AGB jederzeit zu ändern. Über wesentliche Änderungen werden Nutzer per Push-Benachrichtigung oder beim nächsten App-Start informiert.</p>
+    <h2>§ 11 Auftragsverarbeitung (Fahrschulen als Kunden)</h2>
+    <p>Für personenbezogene Daten seiner Fahrlehrer, Mitarbeiter und Fahrschüler ist der Kunde (die Fahrschule) selbst Verantwortlicher im Sinne der DSGVO. Der Anbieter verarbeitet diese Daten als Auftragsverarbeiter gemäß Art. 28 DSGVO auf Grundlage eines gesondert abzuschließenden Auftragsverarbeitungsvertrags (AVV).</p>
+  </div>
+
+  <div class="section">
+    <h2>§ 12 Änderungen der AGB</h2>
+    <p>Der Anbieter behält sich vor, diese AGB jederzeit zu ändern. Über wesentliche Änderungen werden Nutzer per Push-Benachrichtigung, E-Mail oder beim nächsten App-Start informiert.</p>
     <p>Die fortgesetzte Nutzung der App nach einer Änderung gilt als Zustimmung zu den neuen AGB.</p>
   </div>
 
   <div class="section">
-    <h2>§ 8 Anwendbares Recht</h2>
+    <h2>§ 13 Anwendbares Recht</h2>
     <p>Es gilt das Recht der Bundesrepublik Deutschland. Gerichtsstand ist, soweit gesetzlich zulässig, der Wohnsitz des Anbieters.</p>
   </div>
 
   <div class="section">
-    <h2>§ 9 Kontakt</h2>
+    <h2>§ 14 Kontakt</h2>
     <p>Bei Fragen zu diesen AGB wende dich an:</p>
     <p><strong>Lukas Dombert</strong><br/>
     E-Mail: <a href="mailto:Lukas.Dombert@gmx.de">Lukas.Dombert@gmx.de</a></p>
