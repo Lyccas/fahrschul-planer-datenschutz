@@ -24,10 +24,15 @@
       letter-spacing: -0.5px;
       margin-bottom: 6px;
     }
+    /* color explizit: sonst gewinnt die allgemeine p-Regel (#475569) und der Kopftext ist grau auf blau. */
     header p {
       font-size: 14px;
+      color: white;
       opacity: 0.8;
     }
+    /* Google verlangt den Löschweg gut sichtbar – deshalb ein Sprunglink gleich im Kopf. */
+    header p + p { margin-top: 12px; opacity: 1; }
+    header a { color: white; font-weight: 700; text-decoration: underline; }
     main {
       max-width: 760px;
       margin: 40px auto;
@@ -71,7 +76,7 @@
       text-align: center;
       padding: 24px;
       font-size: 13px;
-      color: #94a3b8;
+      color: #64748b;
     }
   </style>
 </head>
@@ -79,7 +84,8 @@
 
 <header>
   <h1>Fahrschul-Planer</h1>
-  <p>Datenschutzerklärung &amp; Impressum</p>
+  <p>Datenschutzerklärung &amp; Impressum · Stand: September 2026</p>
+  <p><a href="#konto-loeschen">So löschst du dein Konto</a></p>
 </header>
 
 <main>
@@ -91,7 +97,12 @@
     <p>Verantwortlich für die Verarbeitung personenbezogener Daten im Sinne der DSGVO ist:</p>
     <p>
       <strong>Lukas Dombert</strong><br />
-      E-Mail: <a href="mailto:Lukas.Dombert@gmx.de">Lukas.Dombert@gmx.de</a>
+      Erich-Kästner-Straße 6a, 65232 Taunusstein<br />
+      E-Mail: <a href="mailto:info@fahrschul-planer.de">info@fahrschul-planer.de</a>
+    </p>
+    <p>
+      Für die Daten, die eine Fahrschule über ihre Fahrschüler, Fahrlehrer und Mitarbeiter im
+      Fahrschul-Planer verwaltet, ist die jeweilige Fahrschule verantwortlich (siehe Abschnitt 17).
     </p>
   </div>
 
@@ -100,19 +111,23 @@
     <span class="badge">Überblick</span>
     <h2>2. Was ist der Fahrschul-Planer?</h2>
     <p>
-      Der Fahrschul-Planer ist eine Software-as-a-Service-Lösung (App + Web-Dashboard) zur digitalen
-      Verwaltung von Fahrschulen. Fahrschulen können sich über die Webseite eigenständig registrieren
-      und ein kostenpflichtiges Abonnement abschließen. Fahrschüler können ihre Verfügbarkeiten
-      einreichen und Fahrstunden einsehen, Fahrlehrer und Verwaltungspersonal (Manager/Mitarbeiter)
-      verwalten Termine, Schüler und Abrechnungen. Die App ist ausschließlich für den Einsatz in
-      Fahrschulen bestimmt und richtet sich nicht an die allgemeine Öffentlichkeit.
+      Der Fahrschul-Planer ist eine Software-as-a-Service-Lösung (App, Web-Dashboard und Webseite) zur digitalen
+      Verwaltung von Fahrschulen. Fahrschulen registrieren sich über unsere Webseite und schließen dort ein
+      kostenpflichtiges Abonnement ab. Fahrschüler reichen Wunschzeiten ein, sehen ihre Fahrstunden und schreiben
+      im Chat mit Fahrlehrer und Büro; Fahrlehrer und Verwaltungspersonal (Manager/Mitarbeiter) verwalten Termine,
+      Schüler und Abrechnungen.
+    </p>
+    <p>
+      Die App ist ausschließlich für den Einsatz in Fahrschulen bestimmt und richtet sich nicht an die allgemeine
+      Öffentlichkeit. Nutzen können sie nur Mitglieder einer teilnehmenden Fahrschule – über den Einladungscode
+      der Fahrschule oder ein Konto, das die Fahrschule anlegt. In der App gibt es keine Käufe.
     </p>
   </div>
 
   <!-- REGISTRIERUNG & ABONNEMENT -->
   <div class="card">
     <span class="badge">Registrierung</span>
-    <h2>3. Registrierung einer Fahrschule &amp; Abonnement</h2>
+    <h2>3. Registrierung einer Fahrschule, Abonnement &amp; Demo-Anfrage</h2>
     <p>
       Möchte eine Fahrschule den Fahrschul-Planer nutzen, registriert sie sich über das Formular
       unter <strong>/register</strong> auf unserer Webseite. Dabei werden folgende Daten erhoben:
@@ -125,30 +140,47 @@
       <li>Gewählter Tarif (Starter/Pro/Business) und Abrechnungsintervall (monatlich/jährlich)</li>
     </ul>
     <p>
-      Im Anschluss an die Registrierung wird die Fahrschule zur Zahlungsabwicklung über unseren
-      Zahlungsdienstleister Stripe weitergeleitet (siehe Abschnitt 8). Der Zugang zur App wird erst
-      nach erfolgreicher Zahlung freigeschaltet.
+      Im Anschluss an die Registrierung wird die Fahrschule zur Zahlungsabwicklung zu unserem
+      Zahlungsdienstleister Stripe weitergeleitet (siehe Abschnitt 9). Bis zur erfolgreichen Zahlung steht der
+      Funktionsumfang des Tarifs Starter zur Verfügung; die Zusatzmodule des gebuchten Tarifs werden nach
+      Zahlungseingang freigeschaltet.
+    </p>
+    <p>
+      <strong>Demo-Anfrage:</strong> Über das Formular auf unserer Startseite kann eine Fahrschule eine eigene
+      Demo-Fahrschule anfragen. Dabei speichern wir den Namen der Fahrschule, den Namen der Ansprechperson, die
+      E-Mail-Adresse, optional eine Telefonnummer und die Nachricht, um die Anfrage zu bearbeiten und uns zu
+      melden. Zum Schutz vor massenhaften Anfragen speichern wir außerdem eine mit einem geheimen Schlüssel
+      gebildete Prüfsumme der IP-Adresse (nicht die Adresse selbst). Sie dient nur zum Zählen der Anfragen
+      innerhalb von 24 Stunden und wird danach automatisch gelöscht.
     </p>
   </div>
 
   <!-- ERHOBENE DATEN -->
   <div class="card">
     <span class="badge">Datenerhebung</span>
-    <h2>4. Welche Daten werden erhoben?</h2>
-    <p>Im Rahmen der Nutzung der App werden folgende personenbezogene Daten verarbeitet:</p>
+    <h2>4. Welche Daten werden verarbeitet?</h2>
+    <p>Im Rahmen der Nutzung von App und Web-Dashboard werden – je nach Rolle – folgende personenbezogene Daten verarbeitet:</p>
     <ul>
       <li><strong>Name</strong> – zur Identifikation innerhalb der Fahrschule</li>
-      <li><strong>E-Mail-Adresse</strong> – für Login und Benachrichtigungen</li>
-      <li><strong>Telefonnummer</strong> – optional, zur Kontaktaufnahme durch den Fahrlehrer</li>
-      <li><strong>Wohnadresse</strong> – optional, für die Navigation des Fahrlehrers zur Abholadresse</li>
-      <li><strong>Verfügbarkeiten / Terminwünsche</strong> – für die automatische Stundenplanung</li>
-      <li><strong>Fahrstunden-Fortschritt</strong> – Sonderfahrten (Überland, Autobahn, Nacht)</li>
-      <li><strong>Push-Notification Token</strong> – für Benachrichtigungen auf dem Gerät</li>
-      <li><strong>Kalender-Event-IDs</strong> – optional, nur bei aktiviertem Kalender-Sync: geräteinterne Referenz-IDs auf Kalendereinträge, gespeichert in der App-Datenbank zur Verwaltung (keine Kalenderinhalte Dritter werden gelesen oder übertragen)</li>
-      <li><strong>Stammdaten der Fahrschule</strong> – Schulname, Tarif/Abonnement, Abrechnungsintervall, Abo-Status</li>
-      <li><strong>Preis- und Zahlungsdaten innerhalb der App</strong> – Preislisten der Fahrschule, erfasste Zahlungen/Salden zwischen Fahrschule und Fahrschüler (Bar/Überweisung), offene Beträge</li>
-      <li><strong>Abo-/Rechnungsdaten (Fahrschule als Kunde)</strong> – Stripe-Kunden-ID, Stripe-Abonnement-ID, Zahlungsstatus; die eigentlichen Zahlungsdaten (z. B. Kartendaten) werden ausschließlich von Stripe verarbeitet, siehe Abschnitt 8</li>
+      <li><strong>E-Mail-Adresse</strong> – für die Anmeldung und für Benachrichtigungen</li>
+      <li><strong>Telefonnummer und Anschrift</strong> – optional, z. B. zur Kontaktaufnahme und als Abholadresse für Fahrstunden</li>
+      <li><strong>Stammdaten für die Anmeldung zur Führerscheinausbildung</strong> – Vor- und Nachname, Geburtsdatum, Geburtsort, Staatsangehörigkeit, Anschrift (Straße, PLZ, Ort), angestrebte und vorhandene Führerscheinklassen, Antrags-/Aktennummer, Notfallkontakt (Name, Telefonnummer) und Notizen. In der App sind außer Name und E-Mail-Adresse alle Angaben freiwillig; deine Fahrschule benötigt einige davon für deine Anmeldung zur Ausbildung.</li>
+      <li><strong>Wunschzeiten und Verfügbarkeiten</strong> – Zeitfenster für die Stundenplanung; bei Fahrlehrern Arbeitszeiten und Urlaub</li>
+      <li><strong>Ausbildungsdaten</strong> – Fahrstunden- und Prüfungstermine, Zähler für Sonderfahrten (Überland, Autobahn, Nacht) und Schaltkompetenz, abgehakte Theorie-Themen, Bewerbungen auf freie Fahrstunden</li>
+      <li><strong>Nachrichten</strong> – Inhalt, Zeitpunkt, Absender, Empfänger und Lesestatus von Chat-Nachrichten und Support-Anfragen; Meldungen von Chat-Nachrichten, deine Blockierliste und der Zeitpunkt, zu dem du die Chat-Regeln bestätigt hast (siehe Abschnitt 13)</li>
+      <li><strong>Preis- und Zahlungsdaten innerhalb der Fahrschule</strong> – Preislisten, abgerechnete Fahrstunden, erfasste Zahlungen und Salden zwischen Fahrschule und Fahrschüler (Bar/Überweisung), offene Beträge</li>
+      <li><strong>Rechnungen der Fahrschule an Fahrschüler</strong> – Rechnungsnummer, Posten, Beträge, Name und Anschrift des Fahrschülers sowie Steuernummer, USt-IdNr. und IBAN der Fahrschule</li>
+      <li><strong>Stammdaten der Fahrschule</strong> – Schulname, Anschrift, Tarif/Abonnement, Abrechnungsintervall, Abo-Status sowie Fahrzeuge und Fahrzeugkosten samt hochgeladener Belege (Bild oder PDF)</li>
+      <li><strong>Abo-/Rechnungsdaten (Fahrschule als Kunde)</strong> – Stripe-Kunden-ID, Stripe-Abonnement-ID, Zahlungsstatus; die eigentlichen Zahlungsdaten (z. B. Kartendaten) werden ausschließlich von Stripe verarbeitet, siehe Abschnitt 9</li>
+      <li><strong>Technische Kennungen</strong> – Nutzer-ID, Push-Token sowie Installations- und Update-Kennung von Expo (siehe Abschnitt 8)</li>
+      <li><strong>Kalender-Event-IDs</strong> – optional, nur bei aktiviertem Kalender-Sync: Referenz-IDs auf die von der App angelegten Kalendereinträge (siehe Abschnitt 15)</li>
     </ul>
+    <p>
+      Viele Angaben trägt deine Fahrschule selbst ein, zum Beispiel wenn das Büro dein Konto anlegt, deine
+      Führerscheinklasse festlegt oder Fahrstunden abrechnet. Innerhalb deiner Fahrschule sehen Fahrlehrer und
+      Büro deine Stammdaten, Termine und Wunschzeiten. Wenn du einen Notfallkontakt angibst, informiere diese
+      Person bitte darüber.
+    </p>
   </div>
 
   <!-- ZWECK -->
@@ -157,17 +189,22 @@
     <h2>5. Wofür werden die Daten verwendet?</h2>
     <p>Die erhobenen Daten werden ausschließlich für folgende Zwecke verwendet:</p>
     <ul>
-      <li>Verwaltung von Fahrstunden und Terminen innerhalb der Fahrschule</li>
-      <li>Automatische Stundenplanung basierend auf Verfügbarkeiten</li>
-      <li>Versand von Push-Benachrichtigungen über neue oder geänderte Termine</li>
-      <li>Kommunikation zwischen Fahrschülern und Fahrlehrern</li>
-      <li>Verfolgung des Ausbildungsfortschritts</li>
+      <li>Verwaltung von Fahrstunden, Prüfungs- und Theorieterminen innerhalb der Fahrschule</li>
+      <li>Automatische Stundenplanung auf Basis von Wunschzeiten, Arbeitszeiten und Urlaub</li>
+      <li>Versand von Push-Benachrichtigungen über neue, geänderte oder abgesagte Termine sowie Erinnerungen (eine Stunde vor der Fahrstunde, fehlende Wunschzeiten vor der automatischen Planung)</li>
+      <li>Kommunikation zwischen Fahrschülern, Fahrlehrern und Büro sowie im Team-Chat, einschließlich Schutz vor Beleidigungen und Missbrauch (Filter, Melden, Blockieren)</li>
+      <li>Bearbeitung von Support- und Demo-Anfragen</li>
+      <li>Verfolgung des Ausbildungsfortschritts und Vorbereitung der Anmeldung zur Führerscheinausbildung durch die Fahrschule</li>
+      <li>Adressvorschläge bei der Eingabe von Anschriften und Orten</li>
       <li>Synchronisation von Fahrstunden mit dem Kalender des Geräts (optional, nur bei aktiviertem Kalender-Sync)</li>
-      <li>Verwaltung von Preislisten, Abrechnungen und Zahlungssalden innerhalb der Fahrschule</li>
+      <li>Verwaltung von Preislisten, Abrechnungen und Zahlungssalden sowie Erstellung von Rechnungen der Fahrschule an Fahrschüler</li>
       <li>Abwicklung, Verwaltung und Verlängerung des Fahrschul-Abonnements sowie Rechnungsstellung</li>
       <li>Bereitstellung des im jeweiligen Tarif enthaltenen Funktionsumfangs</li>
     </ul>
-    <p>Eine Weitergabe an Dritte zu Werbezwecken findet nicht statt.</p>
+    <p>
+      Eine Weitergabe an Dritte zu Werbezwecken findet nicht statt. Die App enthält keine Werbung und keine
+      Analyse- oder Tracking-Dienste.
+    </p>
   </div>
 
   <!-- GOOGLE LOGIN -->
@@ -175,7 +212,7 @@
     <span class="badge">Google Login</span>
     <h2>6. Anmeldung via Google</h2>
     <p>
-      Die App bietet die Möglichkeit, sich mit einem Google-Konto anzumelden.
+      App und Web-Dashboard bieten die Möglichkeit, sich mit einem Google-Konto anzumelden.
       Dabei wird von Google ein Authentifizierungstoken übermittelt, aus dem
       Name und E-Mail-Adresse des Nutzers ausgelesen werden. Diese Daten werden
       in der App-Datenbank gespeichert.
@@ -192,13 +229,16 @@
     <span class="badge">Firebase</span>
     <h2>7. Firebase &amp; Google Cloud</h2>
     <p>
-      Die App verwendet Firebase, einen Dienst der Google LLC, zur Speicherung von
-      Nutzerdaten (Firestore), zur Authentifizierung (Firebase Auth) sowie zum
-      Versand von Push-Benachrichtigungen (Expo Notifications / FCM).
+      Wir nutzen Firebase, einen Dienst der Google LLC, für die Datenbank (Cloud Firestore), die Anmeldung
+      (Firebase Authentication), unsere Server-Funktionen (Cloud Functions) und die Ablage hochgeladener Belege
+      (Cloud Storage).
     </p>
     <p>
-      Die Daten werden auf Servern von Google innerhalb der EU (Region europe-west3, Frankfurt)
-      gespeichert. Es gelten die Standardvertragsklauseln der EU für die Datenverarbeitung.
+      Die Datenbank und unsere Server-Funktionen laufen auf Servern von Google in der EU (Region europe-west3,
+      Frankfurt am Main). Firebase Authentication ist ein weltweit betriebener Dienst: Anmeldedaten wie
+      E-Mail-Adresse und Passwort (nur verschlüsselt) können dabei auch auf Servern von Google in den USA
+      verarbeitet werden (siehe Abschnitt 16). E-Mails zur Bestätigung deiner E-Mail-Adresse und zum
+      Zurücksetzen des Passworts versendet Firebase.
     </p>
     <p>
       Weitere Informationen:
@@ -206,10 +246,31 @@
     </p>
   </div>
 
+  <!-- EXPO -->
+  <div class="card">
+    <span class="badge">Push &amp; App-Updates</span>
+    <h2>8. Expo (Push-Benachrichtigungen und App-Updates)</h2>
+    <p>
+      Für Push-Benachrichtigungen und Updates der App nutzen wir Dienste der 650 Industries, Inc. („Expo"), USA.
+    </p>
+    <ul>
+      <li><strong>Push-Benachrichtigungen:</strong> Erlaubst du Benachrichtigungen, ruft die App bei Expo einen Push-Token ab. Dabei werden die Push-Kennung deines Geräts, eine zufällige Installations-Kennung und die App-Kennung übermittelt. Zum Versand schickt unser Server den Push-Token sowie Titel und Text der Benachrichtigung an Expo; Expo leitet sie an den Apple Push Notification Service (Apple) bzw. Firebase Cloud Messaging (Google) weiter.</li>
+      <li><strong>App-Updates:</strong> Beim Start fragt die App bei Expo nach, ob eine neue Version bereitsteht. Dabei überträgt sie eine zufällige Update-Kennung, die Plattform und den Versionsstand der App.</li>
+    </ul>
+    <p>
+      Wie bei jeder Verbindung ins Internet erhält Expo dabei auch die IP-Adresse deines Geräts. Expo ist nach
+      dem EU-US Data Privacy Framework zertifiziert (siehe Abschnitt 16). Das Web-Dashboard nutzt Expo nicht.
+    </p>
+    <p>
+      Datenschutzerklärung von Expo:
+      <a href="https://expo.dev/privacy" target="_blank">expo.dev/privacy</a>
+    </p>
+  </div>
+
   <!-- STRIPE -->
   <div class="card">
     <span class="badge">Zahlungsabwicklung</span>
-    <h2>8. Zahlungsabwicklung über Stripe</h2>
+    <h2>9. Zahlungsabwicklung über Stripe</h2>
     <p>
       Für die Zahlungsabwicklung des Fahrschul-Abonnements nutzen wir den Zahlungsdienstleister
       Stripe. Beim Abschluss eines Abonnements wird die Fahrschule auf die Checkout-Seite von
@@ -231,15 +292,44 @@
     </p>
   </div>
 
+  <!-- VERCEL -->
+  <div class="card">
+    <span class="badge">Hosting</span>
+    <h2>10. Hosting der Webseite (Vercel)</h2>
+    <p>
+      Unsere Webseite fahrschul-planer.de und das Web-Dashboard werden bei Vercel gehostet. Beim Aufruf
+      verarbeitet Vercel technisch notwendige Verbindungsdaten wie deine IP-Adresse, Datum und Uhrzeit, die
+      aufgerufene Seite und deinen Browser, um die Seite auszuliefern. Auch das Formular für Demo-Anfragen
+      (siehe Abschnitt 3) läuft über Server von Vercel.
+    </p>
+    <p>
+      Zur Messung der Ladezeiten nutzen wir Vercel Speed Insights. Erfasst werden die aufgerufene Seite,
+      Browser, Gerätetyp, Betriebssystem, Land und Ladezeit-Werte – anonym und ohne Bezug zu einzelnen
+      Besuchern oder IP-Adressen.
+    </p>
+    <p>
+      Anbieter: Vercel Inc., 440 N Barranca Avenue #4133, Covina, CA 91723, USA. Vercel ist nach dem
+      EU-US Data Privacy Framework zertifiziert (siehe Abschnitt 16). Rechtsgrundlage: Art. 6 Abs. 1 lit. f
+      DSGVO (sicherer und schneller Betrieb der Webseite).<br />
+      Datenschutzerklärung von Vercel:
+      <a href="https://vercel.com/legal/privacy-policy" target="_blank">vercel.com/legal/privacy-policy</a>
+    </p>
+  </div>
+
   <!-- IONOS -->
   <div class="card">
     <span class="badge">Domain &amp; E-Mail</span>
-    <h2>9. Domain-Verwaltung &amp; geschäftliche E-Mail (IONOS)</h2>
+    <h2>11. Domain &amp; E-Mail (IONOS)</h2>
     <p>
-      Die Domain des Fahrschul-Planers wird über IONOS SE registriert und verwaltet (Domain-Registrierung/DNS).
-      Geschäftliche E-Mail-Postfächer (z. B. für Support-Anfragen) werden ebenfalls über IONOS gehostet.
-      Schreibst du uns eine E-Mail an eine solche Adresse, werden deine E-Mail-Adresse und der Inhalt
-      deiner Nachricht über die Infrastruktur von IONOS verarbeitet.
+      Die Domain des Fahrschul-Planers ist bei IONOS SE registriert. Unsere geschäftlichen E-Mail-Postfächer
+      (z. B. info@fahrschul-planer.de) werden ebenfalls bei IONOS gehostet. Schreibst du uns eine E-Mail,
+      werden deine E-Mail-Adresse und der Inhalt deiner Nachricht über die Infrastruktur von IONOS verarbeitet.
+    </p>
+    <p>
+      Automatische E-Mails unseres Servers, etwa zum Stand einer Demo-Anfrage, versenden wir über IONOS vom
+      Absender noreply@fahrschul-planer.de. Schreibst du uns über den Support-Chat, schickt unser Server eine
+      Benachrichtigung mit dem Text deiner Nachricht über IONOS an unser Postfach. Bei einer Meldung im Chat
+      (siehe Abschnitt 13) erhalten wir auf demselben Weg eine Benachrichtigung zur gemeldeten Nachricht.
     </p>
     <p>
       Anbieter: IONOS SE, Elgendorfer Straße 57, 56410 Montabaur, Deutschland.<br />
@@ -248,28 +338,89 @@
     </p>
   </div>
 
+  <!-- ADRESSVORSCHLÄGE -->
+  <div class="card">
+    <span class="badge">Adressvorschläge</span>
+    <h2>12. Adressvorschläge (Photon)</h2>
+    <p>
+      Wenn du eine Anschrift oder einen Ort eingibst – etwa in deinen Stammdaten oder wenn das Büro ein
+      Schülerkonto anlegt –, schlagen App und Web passende Adressen vor. Dazu schickt die App die eingegebenen
+      Zeichen an unsere Server-Funktionen bei Google (Region Frankfurt am Main, siehe Abschnitt 7). Unser Server
+      fragt den Dienst Photon der komoot GmbH nach passenden Adressen und übermittelt dabei nur den Suchtext –
+      nicht deine IP-Adresse, deinen Namen oder andere Kennungen. Die Anfrage kommt bei komoot also von unserem
+      Server, nicht von deinem Gerät.
+    </p>
+    <p>
+      Gespeichert wird nur die Adresse, die du in das Feld übernimmst. Die Vorschläge beruhen auf Daten von
+      OpenStreetMap. Adressvorschläge gibt es nur für angemeldete Nutzer.
+    </p>
+    <p>
+      Anbieter: komoot GmbH, Kienberger Allee 4, 12529 Schönefeld, Deutschland.<br />
+      Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (unser berechtigtes Interesse an einer schnellen und
+      fehlerfreien Adresseingabe).
+    </p>
+  </div>
+
+  <!-- CHAT -->
+  <div class="card">
+    <span class="badge">Chat</span>
+    <h2>13. Chat, Melden &amp; Blockieren</h2>
+    <p>
+      Im Chat schreibst du mit Mitgliedern deiner Fahrschule: als Fahrschüler mit deinem Fahrlehrer und dem
+      Büro, als Fahrlehrer oder Mitarbeiter auch mit Kollegen und im Team-Chat deiner Fahrschule. Gespeichert
+      werden Absender, Empfänger, Zeitpunkt, Text und Lesestatus jeder Nachricht. Anhänge gibt es nicht.
+    </p>
+    <ul>
+      <li><strong>Wer mitlesen kann:</strong> Chats zwischen Fahrschüler und Fahrlehrer kann auch das Büro deiner Fahrschule einsehen. Wir lesen die Chats der Fahrschulen nicht; unsere Verwaltung hat darauf keinen Lesezugriff – außer auf einzelne Nachrichten, die uns jemand meldet. Unsere Server-Funktionen verarbeiten Nachrichten nur automatisch, etwa beim Löschen eines Kontos.</li>
+      <li><strong>Verschlüsselung:</strong> Nachrichten werden verschlüsselt übertragen und verschlüsselt gespeichert, aber nicht Ende-zu-Ende-verschlüsselt.</li>
+      <li><strong>Chat-Regeln:</strong> Beim ersten Öffnen des Chats bestätigst du unsere Chat-Regeln. Wir speichern dazu den Zeitpunkt deiner Bestätigung an deinem Nutzerkonto.</li>
+      <li><strong>Filter:</strong> Grobe Beleidigungen werden beim Senden und bei der Anzeige automatisch unkenntlich gemacht. Das geschieht direkt in der App bzw. im Browser.</li>
+      <li><strong>Melden:</strong> Verstößt eine Nachricht gegen die Chat-Regeln, kannst du sie melden. Wir speichern dann eine Kopie der Nachricht, wer sie geschrieben und wer sie gemeldet hat, den Chat, die Fahrschule, den Zeitpunkt und deinen optionalen Grund, und erhalten eine Benachrichtigung per E-Mail. Meldungen prüfen wir in der Regel innerhalb von 24 Stunden; nach sechs Monaten werden sie automatisch gelöscht. Damit die Meldefunktion nicht missbraucht wird, zählen wir außerdem, wie viele Meldungen du innerhalb von 24 Stunden abgibst. Andere Nutzer können Meldungen nicht einsehen.</li>
+      <li><strong>Blockieren:</strong> Du kannst Personen blockieren. Deine Blockierliste speichern wir an deinem Konto; andere Nutzer können sie nicht einsehen. Blockierte Personen können dir keine Einzel-Nachrichten mehr schicken und keinen neuen Chat mit dir beginnen, ihre Nachrichten blendet die App für dich aus – im Team-Chat nur in deiner Ansicht. Die Blockierung kannst du jederzeit aufheben. Löschst du dein Konto, löschen wir auch deine Blockierliste.</li>
+    </ul>
+    <p>
+      <strong>Support-Chat:</strong> Über „Support kontaktieren" in der App, den Menüpunkt „Support" im
+      Web-Dashboard oder den Live-Chat auf unserer Webseite schreibst du direkt an uns. Diese Nachrichten sehen
+      nur wir als Betreiber, nicht deine Fahrschule. Im Live-Chat auf der Webseite kannst du freiwillig deinen
+      Namen angeben. Über neue Nachrichten informiert uns unser Server per E-Mail (siehe Abschnitt 11).
+    </p>
+    <p>
+      Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO für den Chat als Funktion der App; Art. 6 Abs. 1 lit. f DSGVO
+      für Filter, Meldungen und Blockieren (Schutz der Nutzer vor Beleidigungen und Missbrauch).
+    </p>
+  </div>
+
   <!-- PUSH NOTIFICATIONS -->
   <div class="card">
     <span class="badge">Push-Benachrichtigungen</span>
-    <h2>10. Push-Benachrichtigungen</h2>
+    <h2>14. Push-Benachrichtigungen</h2>
     <p>
-      Mit deiner Einwilligung sendet die App Push-Benachrichtigungen auf dein Gerät,
-      um dich über neue Fahrstunden, Absagen oder Änderungen zu informieren.
-      Dabei wird ein gerätespezifischer Push-Token auf unseren Servern gespeichert.
+      Nach der Anmeldung fragt die App, ob sie dir Push-Benachrichtigungen schicken darf. Stimmst du zu,
+      speichern wir einen gerätespezifischen Push-Token an deinem Konto. Damit informieren wir dich über neue,
+      geänderte oder abgesagte Termine, freie Fahrstunden und neue Chat-Nachrichten und erinnern dich eine
+      Stunde vor einer Fahrstunde.
     </p>
     <p>
-      Du kannst Push-Benachrichtigungen jederzeit in den App-Einstellungen oder
-      in den Systemeinstellungen deines Geräts deaktivieren. Der gespeicherte
-      Push-Token wird dann nicht mehr verwendet.
+      Benachrichtigungen zu Chat-Nachrichten enthalten den Namen des Absenders und einen Auszug der Nachricht
+      (bis zu 120 Zeichen). Zugestellt werden Benachrichtigungen über Expo (siehe Abschnitt 8) sowie den Apple
+      Push Notification Service bzw. Firebase Cloud Messaging.
+    </p>
+    <p>
+      Du kannst Push-Benachrichtigungen jederzeit im Profil der App oder in den Systemeinstellungen deines
+      Geräts ausschalten. Schaltest du sie im Profil aus, löschen wir den gespeicherten Push-Token.
+    </p>
+    <p>
+      Im Browser zeigt das Web-Dashboard keine Push-Benachrichtigungen an. Aktionen im Web, etwa neue Termine
+      oder Chat-Nachrichten, lösen aber Push-Benachrichtigungen auf den Geräten der Empfänger aus.
     </p>
   </div>
 
   <!-- KALENDER-SYNC -->
   <div class="card">
     <span class="badge">Kalender-Sync</span>
-    <h2>11. Kalender-Synchronisation</h2>
+    <h2>15. Kalender-Synchronisation</h2>
     <p>
-      Die App bietet optional die Möglichkeit, Fahrstunden mit dem nativen Kalender deines Geräts
+      Die App bietet optional die Möglichkeit, Fahrstunden mit dem Kalender deines Geräts
       (iOS Kalender bzw. Google Kalender auf Android) zu synchronisieren. Diese Funktion ist
       standardmäßig deaktiviert und kann in den Profileinstellungen aktiviert werden.
     </p>
@@ -278,16 +429,23 @@
     </p>
     <ul>
       <li>Die App fordert die Berechtigung an, Kalendereinträge zu erstellen, zu bearbeiten und zu löschen.</li>
-      <li>Es wird ein eigener Kalender „Fahrschul-Planer" auf deinem Gerät angelegt.</li>
-      <li>Fahrstunden werden als Kalendereinträge mit Titel, Zeit, Ort und Notiz (Fahrlehrer) eingetragen.</li>
-      <li>Die internen Referenz-IDs dieser Kalendereinträge werden in der App-Datenbank gespeichert, um spätere Aktualisierungen oder Löschungen zu ermöglichen.</li>
-      <li>Inhalte anderer Kalender auf deinem Gerät werden von der App nicht gelesen, nicht gespeichert und nicht übertragen.</li>
+      <li>Beim Einrichten liest die App nur die Liste deiner Kalender, um den eigenen Kalender „Fahrschul-Planer" zu finden oder anzulegen. Termine anderer Kalender liest, speichert und überträgt sie nicht.</li>
+      <li>Fahrstunden werden als Kalendereinträge mit Titel, Zeit, Ort und dem Namen des Fahrlehrers eingetragen. Ist dein Gerätekalender mit einem Cloud-Konto (z. B. iCloud oder Google) verbunden, werden die Einträge auch dort gespeichert.</li>
+      <li>Die Referenz-IDs dieser Kalendereinträge werden in der App-Datenbank gespeichert, um spätere Aktualisierungen oder Löschungen zu ermöglichen. Sie enthalten keine Termininhalte.</li>
+      <li>Theoriestunden kannst du zusätzlich einzeln per Knopf in deinen Kalender eintragen.</li>
     </ul>
     <p>
-      Du kannst den Kalender-Sync jederzeit in den Profileinstellungen der App deaktivieren.
-      Dabei werden alle gespeicherten Kalender-Event-IDs aus der Datenbank entfernt.
-      Die auf deinem Gerät erstellten Kalendereinträge bleiben erhalten und können manuell
-      über die Kalender-App deines Geräts gelöscht werden.
+      Du kannst den Kalender-Sync jederzeit in den Profileinstellungen der App deaktivieren. Dann löscht die App
+      die gespeicherten Referenz-IDs aus der Datenbank, trägt keine neuen Termine mehr ein und entfernt – sofern
+      sie noch Zugriff auf deinen Kalender hat – die Fahrstunden, die sie in deinen Gerätekalender eingetragen
+      hat. Hat sie keinen Zugriff mehr, weist sie dich darauf hin; die Einträge kannst du dann im Kalender
+      „Fahrschul-Planer" selbst löschen. Theoriestunden, die du einzeln per Knopf eingetragen hast, kannst du
+      in der Kalender-App deines Geräts löschen.
+    </p>
+    <p>
+      Löschst du dein Konto, werden die gespeicherten Referenz-IDs ebenfalls gelöscht. Damit auch die Einträge
+      in deinem Gerätekalender verschwinden, schalte den Kalender-Sync vor der Löschung aus – sonst kannst du
+      sie in der Kalender-App deines Geräts löschen.
     </p>
     <p>
       Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung).
@@ -297,23 +455,27 @@
   <!-- RECHTSGRUNDLAGE -->
   <div class="card">
     <span class="badge">Rechtsgrundlage</span>
-    <h2>12. Rechtsgrundlage der Verarbeitung</h2>
+    <h2>16. Rechtsgrundlagen &amp; Übermittlung in Drittländer</h2>
+    <p>Die Verarbeitung personenbezogener Daten erfolgt auf Grundlage von:</p>
+    <ul>
+      <li><strong>Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung)</strong> – Bereitstellung der App-Funktionen sowie Abwicklung und Verwaltung des Fahrschul-Abonnements (inkl. Zahlungsabwicklung über Stripe)</li>
+      <li><strong>Art. 6 Abs. 1 lit. a DSGVO (Einwilligung)</strong> – Push-Benachrichtigungen und der optionale Kalender-Sync</li>
+      <li><strong>Art. 6 Abs. 1 lit. c DSGVO (rechtliche Verpflichtung)</strong> – Aufbewahrung von Rechnungen und Buchungsbelegen</li>
+      <li><strong>Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse)</strong> – Adressvorschläge, Filter, Meldungen und Blockieren im Chat, E-Mail-Benachrichtigungen zu Support-Anfragen, Schutz des Demo-Formulars vor Missbrauch sowie Hosting und Ladezeit-Messung der Webseite</li>
+    </ul>
     <p>
-      Die Verarbeitung personenbezogener Daten erfolgt auf Grundlage von
-      Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung), da die Datenverarbeitung
-      zur Erbringung der App-Funktionen sowie zur Abwicklung und Verwaltung des
-      Fahrschul-Abonnements (inkl. Zahlungsabwicklung über Stripe) erforderlich ist,
-      sowie auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO (Einwilligung) für
-      Push-Benachrichtigungen und den optionalen Kalender-Sync. Soweit gesetzliche
-      Aufbewahrungspflichten (z. B. für Rechnungen) bestehen, erfolgt die Verarbeitung
-      zusätzlich auf Grundlage von Art. 6 Abs. 1 lit. c DSGVO.
+      Einige Dienstleister haben ihren Sitz in den USA oder verarbeiten Daten dort: Google (Firebase), Expo
+      (650 Industries, Inc.), Vercel und Stripe, Inc. Die Übermittlung erfolgt auf Grundlage des
+      Angemessenheitsbeschlusses der EU-Kommission zum EU-US Data Privacy Framework (Art. 45 DSGVO), nach dem
+      diese Unternehmen zertifiziert sind, und, soweit vereinbart, zusätzlich auf Grundlage von
+      Standardvertragsklauseln (Art. 46 DSGVO).
     </p>
   </div>
 
   <!-- AUFTRAGSVERARBEITUNG -->
   <div class="card">
     <span class="badge">Fahrschulen als Kunden</span>
-    <h2>13. Verantwortlichkeit gegenüber Fahrschulen (B2B)</h2>
+    <h2>17. Verantwortlichkeit gegenüber Fahrschulen (B2B)</h2>
     <p>
       Für personenbezogene Daten ihrer eigenen Fahrlehrer, Mitarbeiter und Fahrschüler
       (z. B. Name, Kontaktdaten, Termine, Zahlungen) ist die jeweilige Fahrschule selbst
@@ -322,12 +484,17 @@
       im Sinne von Art. 28 DSGVO auf Grundlage eines gesondert abzuschließenden
       Auftragsverarbeitungsvertrags (AVV) mit der jeweiligen Fahrschule.
     </p>
+    <p>
+      Anfragen zu diesen Daten – etwa zu Auskunft, Berichtigung oder Löschung – kannst du an deine Fahrschule
+      oder an uns richten; wir leiten sie bei Bedarf an deine Fahrschule weiter. Dein eigenes Konto kannst du
+      jederzeit selbst löschen (siehe Abschnitt 19).
+    </p>
   </div>
 
   <!-- BETROFFENENRECHTE -->
   <div class="card">
     <span class="badge">Deine Rechte</span>
-    <h2>14. Deine Rechte</h2>
+    <h2>18. Deine Rechte</h2>
     <p>Du hast folgende Rechte bezüglich deiner personenbezogenen Daten:</p>
     <ul>
       <li><strong>Auskunft</strong> – Welche Daten über dich gespeichert sind (Art. 15 DSGVO)</li>
@@ -338,10 +505,12 @@
       <li><strong>Datenübertragbarkeit</strong> – Erhalt deiner Daten in maschinenlesbarem Format (Art. 20 DSGVO)</li>
     </ul>
     <p>
-      Die Löschung deines Kontos kannst du direkt in der App unter <strong>Profil → Konto löschen</strong> durchführen.
-      Alternativ kannst du die Löschung deines Kontos und aller zugehörigen Daten auch jederzeit per E-Mail
-      <a href="mailto:Lukas.Dombert@gmx.de">Lukas.Dombert@gmx.de</a>
-       anfordern.
+      Eine erteilte Einwilligung kannst du jederzeit mit Wirkung für die Zukunft widerrufen, z. B. indem du
+      Push-Benachrichtigungen oder den Kalender-Sync im Profil der App ausschaltest.
+    </p>
+    <p>
+      Wie du dein Konto löschst, steht in Abschnitt 19. Für alle anderen Anfragen schreib uns an
+      <a href="mailto:info@fahrschul-planer.de">info@fahrschul-planer.de</a>.
     </p>
     <p>
       Du hast außerdem das Recht, dich bei der zuständigen Aufsichtsbehörde zu beschweren.
@@ -349,64 +518,117 @@
     </p>
   </div>
 
+  <!-- KONTO LÖSCHEN (Anker für Google Play und die App – nicht umbenennen) -->
+  <div class="card" id="konto-loeschen">
+    <span class="badge">Konto löschen</span>
+    <h2>19. Konto löschen</h2>
+    <p>
+      So löschst du dein Konto beim Fahrschul-Planer (Lukas Dombert). Eine Übersicht findest du auch unter
+      <a href="https://fahrschul-planer.de/konto-loeschen" target="_blank">fahrschul-planer.de/konto-loeschen</a>.
+    </p>
+    <ul>
+      <li><strong>In der App:</strong> Tab „Profil" → ganz unten „Konto endgültig löschen" → Sicherheitsabfrage bestätigen. Dein Konto wird sofort gelöscht.</li>
+      <li><strong>Im Web:</strong> auf fahrschul-planer.de anmelden → „Mein Profil" → ganz unten „Konto endgültig löschen" → beide Sicherheitsabfragen bestätigen.</li>
+      <li><strong>Per E-Mail, ohne App:</strong> Schreib von der E-Mail-Adresse deines Kontos an <a href="mailto:info@fahrschul-planer.de">info@fahrschul-planer.de</a> mit dem Betreff „Konto löschen". Wir löschen dein Konto innerhalb eines Monats und bestätigen dir das per E-Mail.</li>
+    </ul>
+    <p>
+      <strong>Gelöscht werden</strong> deine Anmeldung, deine Kontakt- und Stammdaten, deine Wunschzeiten und
+      Bewerbungen auf freie Fahrstunden, nicht abgerechnete Fahrstunden, deine eigenen Chat-Nachrichten
+      (Einzel- und Team-Chat) samt der Benachrichtigungen, die sie beim Empfänger ausgelöst haben, deine
+      Benachrichtigungen, deine Blockierliste im Chat und der Zähler deiner Meldungen, dein Push-Token, die
+      Referenz-IDs deiner Kalendereinträge, deine Einstellungen sowie Arbeitszeiten und Urlaub. Die Einträge in
+      deinem Gerätekalender entfernt die App, wenn du vorher den Kalender-Sync ausschaltest und sie noch Zugriff
+      auf deinen Kalender hat (siehe Abschnitt 15).
+    </p>
+    <p>
+      <strong>Aufbewahrt werden</strong> abgerechnete Fahrstunden (Datum, Art, Fahrlehrer, Betrag), Zahlungen und
+      Rechnungen mit deinem Namen und deiner Rechnungsanschrift, die deine Fahrschule aus steuerlichen Gründen
+      aufbewahren muss (§ 147 AO, § 14b UStG – bis zu 10 Jahre). Gibt es solche Unterlagen, wird dein Konto
+      anonymisiert statt vollständig gelöscht: Übrig bleiben dein Name und Angaben zur Ausbildung wie Fahrschule,
+      Fahrlehrer, Führerscheinklasse und Ausbildungsstand; anmelden kann sich damit niemand mehr. Ohne solche
+      Unterlagen wird dein Nutzerkonto vollständig gelöscht.
+    </p>
+    <p>
+      Nachrichten deiner Gesprächspartner bleiben in deren Chat-Verlauf, und Termine, in denen du als Fahrlehrer
+      eingetragen bist, bleiben für die Schüler bestehen. Meldungen zu Chat-Nachrichten brauchen wir, um Verstöße
+      zu prüfen; sie werden nach sechs Monaten automatisch gelöscht. Deinen Support-Chat mit uns entfernt die
+      Kontolöschung nicht automatisch – auf Wunsch löschen wir ihn.
+    </p>
+    <p>
+      <strong>Für Fahrschul-Inhaber:</strong> Die Löschung deines persönlichen Kontos beendet kein Abonnement
+      und löscht nicht die Daten deiner Fahrschule. Kündige das Abo vorher im Web unter Einstellungen → „Abo
+      verwalten". Soll die ganze Fahrschule gelöscht werden, schreib uns.
+    </p>
+  </div>
+
   <!-- SPEICHERDAUER -->
   <div class="card">
     <span class="badge">Speicherdauer</span>
-    <h2>15. Speicherdauer</h2>
+    <h2>20. Speicherdauer</h2>
     <p>
-      Personenbezogene Daten werden nur so lange gespeichert, wie es für die
-      Zwecke der App erforderlich ist. Nach Löschung des Nutzerkontos werden
-      alle personenbezogenen Daten unverzüglich aus der Datenbank entfernt.
-      Fahrstunden-Termine werden nach Abschluss der Ausbildung nicht länger
-      als nötig aufbewahrt.
+      Personenbezogene Daten werden nur so lange gespeichert, wie es für die Zwecke der App erforderlich ist
+      oder gesetzliche Aufbewahrungspflichten bestehen:
     </p>
-    <p>
-      Abo- und Rechnungsdaten einer Fahrschule (z. B. Zahlungsbelege) unterliegen
-      gesetzlichen Aufbewahrungspflichten (u. a. § 147 AO) und werden entsprechend
-      bis zu 10 Jahre aufbewahrt, auch nach Beendigung des Abonnements.
-    </p>
+    <ul>
+      <li><strong>Konto-, Stamm- und Ausbildungsdaten, Wunschzeiten und Termine</strong> – solange dein Konto besteht. Nach dem Ende der Ausbildung bleiben sie gespeichert, bis du dein Konto löschst oder deine Fahrschule uns um die Löschung bittet. Was bei der Löschung passiert, steht in Abschnitt 19.</li>
+      <li><strong>Chat-Nachrichten</strong> – bis der Absender sein Konto löscht. Eine Löschung nach Zeitablauf gibt es nicht.</li>
+      <li><strong>Meldungen zu Chat-Nachrichten</strong> – sechs Monate ab der Meldung; danach werden sie automatisch gelöscht, auch wenn das Konto noch besteht.</li>
+      <li><strong>Blockierliste</strong> – bis du die Blockierungen aufhebst oder dein Konto löschst.</li>
+      <li><strong>Zähler deiner Meldungen</strong> (Beginn des 24-Stunden-Fensters und Anzahl) – bis du dein Konto löschst.</li>
+      <li><strong>Support-Chat</strong> – bis du die Löschung verlangst; die Kontolöschung entfernt ihn nicht automatisch.</li>
+      <li><strong>Demo-Anfragen</strong> – bis die Anfrage bearbeitet ist; auf Wunsch löschen wir sie sofort.</li>
+      <li><strong>Push-Token</strong> – bis du Push-Benachrichtigungen im Profil ausschaltest oder dein Konto löschst.</li>
+      <li><strong>Referenz-IDs von Kalendereinträgen</strong> – bis du den Kalender-Sync ausschaltest oder dein Konto löschst.</li>
+      <li><strong>Abrechnungsdaten</strong> – abgerechnete Fahrstunden, Zahlungen und Rechnungen samt Name und Rechnungsanschrift bleiben auch nach einer Kontolöschung bis zum Ablauf der gesetzlichen Aufbewahrungsfristen erhalten (§ 147 AO, § 14b UStG: bis zu 10 Jahre).</li>
+      <li><strong>Abo- und Rechnungsdaten einer Fahrschule</strong> (z. B. Zahlungsbelege) – bis zu 10 Jahre, auch nach Beendigung des Abonnements (u. a. § 147 AO).</li>
+    </ul>
   </div>
 
   <!-- MINDERJÄHRIGE -->
   <div class="card">
     <span class="badge">Minderjährige</span>
-    <h2>16. Nutzung durch Minderjährige</h2>
+    <h2>21. Nutzung durch Minderjährige</h2>
     <p>
-      Da Fahrschüler teilweise minderjährig sein können (ab 16 Jahren für
-      begleitetes Fahren), stimmen Minderjährige der Datenverarbeitung mit
-      Einwilligung eines Erziehungsberechtigten zu. Erziehungsberechtigte
-      können jederzeit Auskunft über die gespeicherten Daten ihres Kindes
-      sowie deren Löschung verlangen.
+      Fahrschüler können minderjährig sein. Die Verarbeitung ihrer Daten dient der Durchführung des
+      Ausbildungsvertrags mit der Fahrschule, den bei Minderjährigen die Erziehungsberechtigten abschließen.
+      Einwilligungen für Push-Benachrichtigungen und den Kalender-Sync erteilst du auf deinem Gerät und kannst
+      sie jederzeit im Profil widerrufen. Erziehungsberechtigte können jederzeit Auskunft über die gespeicherten
+      Daten ihres Kindes sowie deren Löschung verlangen.
     </p>
   </div>
 
   <!-- ÄNDERUNGEN -->
   <div class="card">
     <span class="badge">Aktualisierungen</span>
-    <h2>17. Änderungen dieser Datenschutzerklärung</h2>
+    <h2>22. Änderungen dieser Datenschutzerklärung</h2>
     <p>
       Diese Datenschutzerklärung kann bei Bedarf angepasst werden, z.B. bei
       neuen App-Funktionen oder gesetzlichen Änderungen. Die aktuelle Version
       ist stets unter dieser URL abrufbar. Das Datum der letzten Aktualisierung
       ist unten angegeben.
     </p>
-    <p><strong>Stand:</strong> Juni 2026</p>
+    <p><strong>Stand:</strong> September 2026</p>
   </div>
 
-  <!-- KONTAKT -->
-  <div class="card">
+  <!-- KONTAKT (Anker für die Support-Seite – nicht umbenennen) -->
+  <div class="card" id="impressum">
     <span class="badge">Kontakt</span>
-    <h2>18. Kontakt &amp; Impressum</h2>
-    <p>Bei Fragen zur Datenschutzerklärung oder zur Verarbeitung deiner Daten:</p>
+    <h2>23. Kontakt &amp; Impressum</h2>
+    <p>Bei Fragen zur Datenschutzerklärung, zur Verarbeitung deiner Daten oder zum Fahrschul-Planer:</p>
     <p>
       <strong>Lukas Dombert</strong><br />
-      E-Mail: <a href="mailto:Lukas.Dombert@gmx.de">Lukas.Dombert@gmx.de</a><br />
+      E-Mail: <a href="mailto:info@fahrschul-planer.de">info@fahrschul-planer.de</a><br />
       Adresse: Erich-Kästner-Straße 6a, 65232 Taunusstein
     </p>
-    <p style="margin-top: 14px; font-size: 13px; color: #94a3b8;">
-      Hinweis: Diese Datenschutzerklärung gilt für die mobile App und das Web-Dashboard
-      „Fahrschul-Planer" und nicht für externe Dienste wie Google, Firebase, Stripe oder IONOS,
-      für die deren eigene Datenschutzbestimmungen gelten.
+    <p>
+      Hilfe und Antworten auf häufige Fragen:
+      <a href="https://fahrschul-planer.de/support" target="_blank">fahrschul-planer.de/support</a>
+    </p>
+    <p style="margin-top: 14px; font-size: 13px; color: #64748b;">
+      Hinweis: Diese Datenschutzerklärung gilt für die mobile App, das Web-Dashboard und die Webseite
+      „Fahrschul-Planer" und nicht für externe Dienste wie Google, Firebase, Expo, Stripe, Vercel, IONOS,
+      komoot (Photon) sowie Karten-Apps (Apple Karten, Google Maps, Waze), an die die App auf deinen Tipp hin
+      eine Adresse übergibt. Für diese gelten deren eigene Datenschutzbestimmungen.
     </p>
   </div>
 
@@ -414,7 +636,7 @@
 
 <footer>
   © 2026 Fahrschul-Planer · Lukas Dombert ·
-  <a href="mailto:Lukas.Dombert@gmx.de">Lukas.Dombert@gmx.de</a>
+  <a href="mailto:info@fahrschul-planer.de">info@fahrschul-planer.de</a>
 </footer>
 
 </body>
