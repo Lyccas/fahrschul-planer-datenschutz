@@ -67,6 +67,9 @@
       font-size: 14px;
     }
     .section table th, .section table td {
+      /* Lange Wörter wie „Unterauftragsverarbeiter" trennen, sonst scrollt die Seite bei 400 px seitlich. */
+      hyphens: auto;
+      overflow-wrap: anywhere;
       text-align: left;
       padding: 6px 8px;
       border-bottom: 1px solid #e2e8f0;
@@ -74,7 +77,8 @@
       vertical-align: top;
     }
     .section table th { color: #2350b8; font-weight: 700; }
-    .meta { font-size: 13px; color: #94a3b8; text-align: center; margin-top: 32px; }
+    /* #64748b statt #94a3b8: der hellere Grauton erreichte auf Weiß den WCAG-Kontrast 4.5:1 nicht. */
+    .meta { font-size: 13px; color: #64748b; text-align: center; margin-top: 32px; }
     a { color: #2350b8; }
   </style>
 </head>
@@ -83,7 +87,7 @@
 <header>
   <div class="app-name">Fahrschul-Planer</div>
   <h1>Auftragsverarbeitungsvertrag (AVV)</h1>
-  <p>gemäß Art. 28 DSGVO · Stand: Juni 2026</p>
+  <p>gemäß Art. 28 DSGVO · Stand: September 2026</p>
 </header>
 
 <main>
@@ -180,10 +184,12 @@
     <table>
       <tr><th>Unterauftragsverarbeiter</th><th>Zweck</th><th>Standort</th></tr>
       <tr><td>Google LLC / Firebase (Google Cloud)</td><td>Hosting, Datenbank (Firestore), Authentifizierung, Push-Benachrichtigungen</td><td>EU (Region europe-west3, Frankfurt)</td></tr>
+      <!-- Expo seit September 2026, wie in der Datenschutzerklärung (Abschnitt 8). komoot (Photon, Abschnitt 12) steht bewusst
+           nicht hier: öffentliche API ohne Vertrag, die vom Server nur Suchtexte ohne Kennung erhält – kein Unterauftragsverarbeiter nach Art. 28. -->
+      <tr><td>650 Industries, Inc. („Expo")</td><td>Zustellung von Push-Benachrichtigungen (Push-Token, Titel und Text der Benachrichtigung) und Auslieferung von App-Updates</td><td>USA – auf Grundlage des EU-US Data Privacy Framework, soweit vereinbart ergänzend EU-Standardvertragsklauseln</td></tr>
       <tr><td>Stripe (Stripe Payments Europe, Ltd. / Stripe, Inc.)</td><td>Zahlungsabwicklung des Abonnements</td><td>Irland (EU) / USA – auf Grundlage von EU-Standardvertragsklauseln</td></tr>
-      <tr><td>Vercel Inc.</td><td>Hosting der Web-Anwendung (Landingpage, Dashboard)</td><td>EU/USA – auf Grundlage von EU-Standardvertragsklauseln</td></tr>
-      <tr><td>IONOS SE</td><td>Domain-Registrierung/DNS, Hosting geschäftlicher E-Mail-Postfächer</td><td>Deutschland (EU)</td></tr>
-    </table>
+      <tr><td>Vercel Inc.</td><td>Hosting der Web-Anwendung (Webseite, Web-Dashboard, Demo-Formular)</td><td>EU/USA – auf Grundlage von EU-Standardvertragsklauseln</td></tr>
+      <tr><td>IONOS SE</td><td>Domain-Registrierung/DNS, Hosting geschäftlicher E-Mail-Postfächer</td><td>Deutschland (EU)</td></tr>    </table>
     <p>
       Der Auftragsverarbeiter informiert den Verantwortlichen über die Hinzuziehung oder Ersetzung weiterer
       Unterauftragsverarbeiter, sodass der Verantwortliche die Möglichkeit hat, Einspruch zu erheben.
@@ -254,7 +260,7 @@
       <li>Regelmäßige Aktualisierung der eingesetzten Software-Abhängigkeiten</li>
       <li>Beschränkung des administrativen Zugriffs auf den Auftragsverarbeiter selbst</li>
     </ul>
-    <p style="margin-top: 10px; font-size: 13px; color: #94a3b8;">
+    <p style="margin-top: 10px; font-size: 13px; color: #64748b;">
       Diese Zusammenfassung kann auf Anfrage des Verantwortlichen detailliert ausgeführt werden.
     </p>
   </div>
