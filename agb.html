@@ -11,6 +11,8 @@
       background: #f8fafc;
       color: #1e293b;
       line-height: 1.7;
+      /* Lange Links wie fahrschul-planer.de/konto-loeschen dürfen auf schmalen Handys umbrechen. */
+      overflow-wrap: break-word;
     }
     header {
       background: #2350b8;
@@ -68,6 +70,7 @@
       font-size: 15px;
     }
     .section ul li { margin-bottom: 6px; }
+    .section ul + p { margin-top: 10px; }
     .section table {
       width: 100%;
       border-collapse: collapse;
@@ -84,9 +87,10 @@
       color: #2350b8;
       font-weight: 700;
     }
+    /* #64748b statt #94a3b8: der hellere Grauton erreichte auf dem Hintergrund den WCAG-Kontrast 4.5:1 nicht. */
     .meta {
       font-size: 13px;
-      color: #94a3b8;
+      color: #64748b;
       text-align: center;
       margin-top: 32px;
     }
@@ -98,7 +102,7 @@
 <header>
   <div class="app-name">Fahrschul-Planer</div>
   <h1>Allgemeine Geschäftsbedingungen</h1>
-  <p>Stand: Juni 2026</p>
+  <p>Stand: September 2026</p>
 </header>
 
 <main>
@@ -135,7 +139,17 @@
       <li>deine Zugangsdaten vertraulich zu behandeln und nicht an Dritte weiterzugeben,</li>
       <li>die App nicht missbräuchlich zu nutzen (z. B. automatisierte Zugriffe, Spam, Schadsoftware),</li>
       <li>Termine nur dann abzusagen, wenn du sie tatsächlich nicht wahrnehmen kannst,</li>
+      <li>keine rechtswidrigen Inhalte zu verbreiten und andere Nutzer weder zu beleidigen noch zu belästigen,</li>
       <li>andere Nutzer respektvoll zu behandeln.</li>
+    </ul>
+    <!-- Wortgleich zu CHAT_REGELN in src/utils/chatFilter.js, die App und Web beim ersten Öffnen des Chats
+         zeigen (Apple 1.2, Google Play UGC). Ändert sich der Text dort, hier mitziehen. -->
+    <p><strong>Chat-Regeln:</strong> Für den Chat in App und Web-Dashboard gelten außerdem diese Regeln, die dir beim ersten Öffnen des Chats angezeigt werden:</p>
+    <ul>
+      <li>Bleib respektvoll, so wie im Unterricht und im Fahrschulauto.</li>
+      <li>Keine Beleidigungen, Drohungen, Belästigungen oder anstößigen Inhalte.</li>
+      <li>Stört dich eine Nachricht, kannst du sie melden oder die Person blockieren.</li>
+      <li>Wir prüfen Meldungen in der Regel innerhalb von 24 Stunden. Bei Verstößen können Nachrichten gelöscht und Konten gesperrt werden.</li>
     </ul>
   </div>
 
@@ -158,7 +172,7 @@
   <div class="section">
     <h2>§ 6 Vertragslaufzeit und Kündigung</h2>
     <p>Das Abonnement läuft auf unbestimmte Zeit und verlängert sich automatisch um den gewählten Abrechnungszeitraum (monatlich oder jährlich), sofern es nicht rechtzeitig gekündigt wird.</p>
-    <p>Eine Kündigung ist mit einer Frist von 30 Tagen zum Ende des jeweils laufenden Abrechnungszeitraums möglich. Die Kündigung erfolgt über das Kundenportal im Web-Dashboard (Einstellungen → „Plan &amp; Abo" → „Abo verwalten") oder alternativ per E-Mail an <a href="mailto:Lukas.Dombert@gmx.de">Lukas.Dombert@gmx.de</a>.</p>
+    <p>Eine Kündigung ist mit einer Frist von 30 Tagen zum Ende des jeweils laufenden Abrechnungszeitraums möglich. Die Kündigung erfolgt über das Kundenportal im Web-Dashboard (Einstellungen → „Plan &amp; Abo" → „Abo verwalten") oder alternativ per E-Mail an <a href="mailto:info@fahrschul-planer.de">info@fahrschul-planer.de</a>.</p>
     <p>Bereits gezahlte Beträge für den laufenden Abrechnungszeitraum werden bei einer Kündigung nicht anteilig erstattet; der Zugang bleibt bis zum Ende des bezahlten Zeitraums bestehen.</p>
     <p>Der Anbieter kann das Vertragsverhältnis bei schwerwiegendem oder wiederholtem Verstoß gegen diese AGB außerordentlich kündigen (siehe auch § 10).</p>
   </div>
@@ -189,7 +203,7 @@
 
   <div class="section">
     <h2>§ 10 Konto und Datenlöschung</h2>
-    <p>Nutzer können ihr Konto jederzeit über die App oder durch eine Anfrage an den Anbieter löschen lassen. Alle personenbezogenen Daten werden nach Löschung des Kontos entfernt, soweit keine gesetzlichen Aufbewahrungspflichten (z. B. für Rechnungen) entgegenstehen.</p>
+    <p>Nutzer können ihr Konto jederzeit über die App, das Web-Dashboard oder durch eine Anfrage an den Anbieter löschen lassen. Welche Daten dabei gelöscht und welche aufbewahrt werden – etwa Rechnungen wegen gesetzlicher Aufbewahrungspflichten –, steht in der Datenschutzerklärung und unter <a href="https://fahrschul-planer.de/konto-loeschen" target="_blank">fahrschul-planer.de/konto-loeschen</a>.</p>
     <p>Der Anbieter behält sich vor, Konten bei Verstoß gegen diese AGB ohne vorherige Ankündigung zu sperren oder zu löschen.</p>
   </div>
 
@@ -213,7 +227,7 @@
     <h2>§ 14 Kontakt</h2>
     <p>Bei Fragen zu diesen AGB wende dich an:</p>
     <p><strong>Lukas Dombert</strong><br/>
-    E-Mail: <a href="mailto:Lukas.Dombert@gmx.de">Lukas.Dombert@gmx.de</a></p>
+    E-Mail: <a href="mailto:info@fahrschul-planer.de">info@fahrschul-planer.de</a></p>
   </div>
 
   <p class="meta">© 2026 Lukas Dombert · Fahrschul-Planer · <a href="https://lyccas.github.io/fahrschul-planer-datenschutz/">Datenschutzerklärung</a></p>
