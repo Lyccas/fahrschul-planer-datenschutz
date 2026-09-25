@@ -166,9 +166,11 @@
       <li><strong>Telefonnummer und Anschrift</strong> – optional, z. B. zur Kontaktaufnahme und als Abholadresse für Fahrstunden</li>
       <li><strong>Stammdaten für die Anmeldung zur Führerscheinausbildung</strong> – Vor- und Nachname, Geburtsdatum, Geburtsort, Staatsangehörigkeit, Anschrift (Straße, PLZ, Ort), angestrebte und vorhandene Führerscheinklassen, Antrags-/Aktennummer, Notfallkontakt (Name, Telefonnummer) und Notizen. In der App sind außer Name und E-Mail-Adresse alle Angaben freiwillig; deine Fahrschule benötigt einige davon für deine Anmeldung zur Ausbildung.</li>
       <li><strong>Wunschzeiten und Verfügbarkeiten</strong> – Zeitfenster für die Stundenplanung; bei Fahrlehrern Arbeitszeiten und Urlaub</li>
-      <li><strong>Ausbildungsdaten</strong> – Fahrstunden- und Prüfungstermine, Zähler für Sonderfahrten (Überland, Autobahn, Nacht) und Schaltkompetenz, abgehakte Theorie-Themen, Bewerbungen auf freie Fahrstunden</li>
+      <li><strong>Ausbildungsdaten</strong> – Fahrstunden- und Prüfungstermine (auch nachgetragene, jeweils mit Fahrlehrer), daraus berechnete Sonderfahrten (Überland, Autobahn, Dunkelheit) und Schaltstunden, Teilnahme am Theorieunterricht (Datum, Thema, Dauer, Fahrlehrer), abgehakte Theorie-Themen, Ausbildungsende, frühere Ausbildungen in derselben Fahrschule, Bewerbungen auf freie Fahrstunden</li>
+      <li><strong>Unterschrift auf der Anwesenheitsliste</strong> – mit dem Finger auf einem Gerät der Fahrschule gezeichnet und nur als Linienzug gespeichert, ohne Schreibgeschwindigkeit, Druck oder zeitlichen Ablauf; sie belegt die Teilnahme am Theorieunterricht</li>
+      <li><strong>Fahrlehrer-Nummer</strong> – bei Fahrlehrern, für den Ausbildungsnachweis</li>
       <li><strong>Nachrichten</strong> – Inhalt, Zeitpunkt, Absender, Empfänger und Lesestatus von Chat-Nachrichten und Support-Anfragen; Meldungen von Chat-Nachrichten, deine Blockierliste und der Zeitpunkt, zu dem du die Chat-Regeln bestätigt hast (siehe Abschnitt 13)</li>
-      <li><strong>Preis- und Zahlungsdaten innerhalb der Fahrschule</strong> – Preislisten, abgerechnete Fahrstunden, erfasste Zahlungen und Salden zwischen Fahrschule und Fahrschüler (Bar/Überweisung), offene Beträge</li>
+      <li><strong>Preis- und Zahlungsdaten innerhalb der Fahrschule</strong> – Preislisten, abgerechnete Fahrstunden, erfasste Zahlungen und Salden zwischen Fahrschule und Fahrschüler (Bar, Karte, Überweisung), offene Beträge</li>
       <li><strong>Rechnungen der Fahrschule an Fahrschüler</strong> – Rechnungsnummer, Posten, Beträge, Name und Anschrift des Fahrschülers sowie Steuernummer, USt-IdNr. und IBAN der Fahrschule</li>
       <li><strong>Stammdaten der Fahrschule</strong> – Schulname, Anschrift, Tarif/Abonnement, Abrechnungsintervall, Abo-Status sowie Fahrzeuge und Fahrzeugkosten samt hochgeladener Belege (Bild oder PDF)</li>
       <li><strong>Abo-/Rechnungsdaten (Fahrschule als Kunde)</strong> – Stripe-Kunden-ID, Stripe-Abonnement-ID, Zahlungsstatus; die eigentlichen Zahlungsdaten (z. B. Kartendaten) werden ausschließlich von Stripe verarbeitet, siehe Abschnitt 9</li>
@@ -195,6 +197,8 @@
       <li>Kommunikation zwischen Fahrschülern, Fahrlehrern und Büro sowie im Team-Chat, einschließlich Schutz vor Beleidigungen und Missbrauch (Filter, Melden, Blockieren)</li>
       <li>Bearbeitung von Support- und Demo-Anfragen</li>
       <li>Verfolgung des Ausbildungsfortschritts und Vorbereitung der Anmeldung zur Führerscheinausbildung durch die Fahrschule</li>
+      <li>Aufzeichnung der Ausbildung und Erstellung des Ausbildungsnachweises sowie der Bestätigung für die praktische Prüfung (§ 31 FahrlG, Anlage 3 DV-FahrlG, § 17 Abs. 5 FeV)</li>
+      <li>Auskunft über die gespeicherten Daten (Art. 15 DSGVO), die deine Fahrschule direkt aus der App erstellt</li>
       <li>Adressvorschläge bei der Eingabe von Anschriften und Orten</li>
       <li>Synchronisation von Fahrstunden mit dem Kalender des Geräts (optional, nur bei aktiviertem Kalender-Sync)</li>
       <li>Verwaltung von Preislisten, Abrechnungen und Zahlungssalden sowie Erstellung von Rechnungen der Fahrschule an Fahrschüler</li>
@@ -460,7 +464,7 @@
     <ul>
       <li><strong>Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung)</strong> – Bereitstellung der App-Funktionen sowie Abwicklung und Verwaltung des Fahrschul-Abonnements (inkl. Zahlungsabwicklung über Stripe)</li>
       <li><strong>Art. 6 Abs. 1 lit. a DSGVO (Einwilligung)</strong> – Push-Benachrichtigungen und der optionale Kalender-Sync</li>
-      <li><strong>Art. 6 Abs. 1 lit. c DSGVO (rechtliche Verpflichtung)</strong> – Aufbewahrung von Rechnungen und Buchungsbelegen</li>
+      <li><strong>Art. 6 Abs. 1 lit. c DSGVO (rechtliche Verpflichtung)</strong> – Aufzeichnung und Aufbewahrung der Ausbildungsdaten (§ 31 FahrlG) sowie Aufbewahrung von Rechnungen und Buchungsbelegen</li>
       <li><strong>Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse)</strong> – Adressvorschläge, Filter, Meldungen und Blockieren im Chat, E-Mail-Benachrichtigungen zu Support-Anfragen, Schutz des Demo-Formulars vor Missbrauch sowie Hosting und Ladezeit-Messung der Webseite</li>
     </ul>
     <p>
@@ -486,7 +490,8 @@
     </p>
     <p>
       Anfragen zu diesen Daten – etwa zu Auskunft, Berichtigung oder Löschung – kannst du an deine Fahrschule
-      oder an uns richten; wir leiten sie bei Bedarf an deine Fahrschule weiter. Dein eigenes Konto kannst du
+      oder an uns richten; wir leiten sie bei Bedarf an deine Fahrschule weiter. Eine vollständige Auskunft über
+      deine gespeicherten Daten kann deine Fahrschule dir direkt aus der App als PDF erstellen. Dein eigenes Konto kannst du
       jederzeit selbst löschen (siehe Abschnitt 19).
     </p>
   </div>
@@ -532,8 +537,9 @@
       <li><strong>Per E-Mail, ohne App:</strong> Schreib von der E-Mail-Adresse deines Kontos an <a href="mailto:info@fahrschul-planer.de">info@fahrschul-planer.de</a> mit dem Betreff „Konto löschen". Wir löschen dein Konto innerhalb eines Monats und bestätigen dir das per E-Mail.</li>
     </ul>
     <p>
-      <strong>Gelöscht werden</strong> deine Anmeldung, deine Kontakt- und Stammdaten, deine Wunschzeiten und
-      Bewerbungen auf freie Fahrstunden, nicht abgerechnete Fahrstunden, deine eigenen Chat-Nachrichten
+      <strong>Gelöscht werden</strong> deine Anmeldung, deine Kontaktdaten und die Stammdaten, die nicht für den
+      Ausbildungsnachweis aufbewahrt werden müssen (z. B. Telefonnummer, Geburtsort, Notfallkontakt, Notizen), deine
+      Wunschzeiten und Bewerbungen auf freie Fahrstunden, künftige Termine, deine eigenen Chat-Nachrichten
       (Einzel- und Team-Chat) samt der Benachrichtigungen, die sie beim Empfänger ausgelöst haben, deine
       Benachrichtigungen, deine Blockierliste im Chat und der Zähler deiner Meldungen, dein Push-Token, die
       Referenz-IDs deiner Kalendereinträge, deine Einstellungen sowie Arbeitszeiten und Urlaub. Die Einträge in
@@ -547,6 +553,13 @@
       anonymisiert statt vollständig gelöscht: Übrig bleiben dein Name und Angaben zur Ausbildung wie Fahrschule,
       Fahrlehrer, Führerscheinklasse und Ausbildungsstand; anmelden kann sich damit niemand mehr. Ohne solche
       Unterlagen wird dein Nutzerkonto vollständig gelöscht.
+    </p>
+    <p>
+      <strong>Ebenfalls aufbewahrt</strong> werden deine Ausbildungsaufzeichnungen (Name, Anschrift, Geburtsdatum, Führerscheinklasse und Vorbesitz, gefahrene Fahrstunden, Theorie-Anwesenheit samt Unterschrift und Ausbildungsende).
+      Deine Fahrschule muss sie nach § 31 Abs. 3 FahrlG fünf Jahre lang aufbewahren, gerechnet ab dem Ende des
+      Jahres, in dem deine Ausbildung endete; endet sie ohne Abschluss, zählt das Jahr der Kontolöschung. In dieser
+      Zeit kann nur das Büro deiner Fahrschule sie lesen, ändern kann sie niemand. Danach werden sie automatisch
+      gelöscht. Dasselbe gilt, wenn du die Fahrschule verlässt oder wechselst.
     </p>
     <p>
       Nachrichten deiner Gesprächspartner bleiben in deren Chat-Verlauf, und Termine, in denen du als Fahrlehrer
@@ -570,8 +583,12 @@
       oder gesetzliche Aufbewahrungspflichten bestehen:
     </p>
     <ul>
-      <li><strong>Konto-, Stamm- und Ausbildungsdaten, Wunschzeiten und Termine</strong> – solange dein Konto besteht. Nach dem Ende der Ausbildung bleiben sie gespeichert, bis du dein Konto löschst oder deine Fahrschule uns um die Löschung bittet. Was bei der Löschung passiert, steht in Abschnitt 19.</li>
-      <li><strong>Chat-Nachrichten</strong> – bis der Absender sein Konto löscht. Eine Löschung nach Zeitablauf gibt es nicht.</li>
+      <li><strong>Konto- und Kontaktdaten, Wunschzeiten und künftige Termine</strong> – solange dein Konto besteht. Was bei der Löschung passiert, steht in Abschnitt 19.</li>
+      <li><strong>Ausbildungsdaten</strong> (Name, Anschrift, Geburtsdatum, Führerscheinklasse und Vorbesitz, gefahrene Fahrstunden, Theorie-Anwesenheit samt Unterschrift und Ausbildungsende) – fünf Jahre ab dem Ende des Jahres, in dem die Ausbildung endete (§ 31 Abs. 3 FahrlG), bei mehreren Ausbildungen für jede einzeln. Endet sie ohne Abschluss, weil du dein Konto löschst oder die Fahrschule verlässt, zählt dieses Jahr. Danach löscht der Fahrschul-Planer sie automatisch; hast du die Prüfung bestanden und keine neue Ausbildung begonnen, wird dann auch dein Konto gelöscht.</li>
+      <li><strong>Chat-Nachrichten</strong> – bis der Absender sein Konto löscht. Verlässt ein Fahrschüler seine Fahrschule (Austritt, Wechsel), löschen wir seine Nachrichten sechs Monate danach; sie gehören nicht zur Ausbildungsakte.</li>
+      <li><strong>Benachrichtigungen in der App</strong> – 90 Tage.</li>
+      <li><strong>Wunschzeiten für die Planung</strong> – acht Wochen nach der Woche, für die sie gelten.</li>
+      <li><strong>Protokolle der automatischen Planung</strong> – 90 Tage.</li>
       <li><strong>Meldungen zu Chat-Nachrichten</strong> – sechs Monate ab der Meldung; danach werden sie automatisch gelöscht, auch wenn das Konto noch besteht.</li>
       <li><strong>Blockierliste</strong> – bis du die Blockierungen aufhebst oder dein Konto löschst.</li>
       <li><strong>Zähler deiner Meldungen</strong> (Beginn des 24-Stunden-Fensters und Anzahl) – bis du dein Konto löschst.</li>
@@ -579,7 +596,7 @@
       <li><strong>Demo-Anfragen</strong> – bis die Anfrage bearbeitet ist; auf Wunsch löschen wir sie sofort.</li>
       <li><strong>Push-Token</strong> – bis du Push-Benachrichtigungen im Profil ausschaltest oder dein Konto löschst.</li>
       <li><strong>Referenz-IDs von Kalendereinträgen</strong> – bis du den Kalender-Sync ausschaltest oder dein Konto löschst.</li>
-      <li><strong>Abrechnungsdaten</strong> – abgerechnete Fahrstunden, Zahlungen und Rechnungen samt Name und Rechnungsanschrift bleiben auch nach einer Kontolöschung bis zum Ablauf der gesetzlichen Aufbewahrungsfristen erhalten (§ 147 AO, § 14b UStG: bis zu 10 Jahre).</li>
+      <li><strong>Abrechnungsdaten</strong> – abgerechnete Fahrstunden, Zahlungen und Rechnungen samt Name und Rechnungsanschrift bleiben auch nach einer Kontolöschung bis zum Ablauf der gesetzlichen Aufbewahrungsfristen erhalten (§ 147 AO, § 14b UStG: bis zu 10 Jahre ab Ende des Jahres, in dem sie entstanden sind) und werden danach automatisch gelöscht.</li>
       <li><strong>Abo- und Rechnungsdaten einer Fahrschule</strong> (z. B. Zahlungsbelege) – bis zu 10 Jahre, auch nach Beendigung des Abonnements (u. a. § 147 AO).</li>
     </ul>
   </div>
