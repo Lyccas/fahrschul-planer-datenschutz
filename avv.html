@@ -87,7 +87,7 @@
 <header>
   <div class="app-name">Fahrschul-Planer</div>
   <h1>Auftragsverarbeitungsvertrag (AVV)</h1>
-  <p>gemäß Art. 28 DSGVO · Stand: September 2026</p>
+  <p>gemäß Art. 28 DSGVO · Stand: Oktober 2026</p>
 </header>
 
 <main>
@@ -127,8 +127,10 @@
     <ul>
       <li>Verwaltung von Fahrstunden, Terminen und Verfügbarkeiten</li>
       <li>Automatische Stundenplanung</li>
-      <li>Versand von Push-Benachrichtigungen</li>
-      <li>Verwaltung von Preislisten, Abrechnungen und Zahlungssalden zwischen Fahrschule und Fahrschüler</li>
+      <li>Versand von Push-Benachrichtigungen und automatischen E-Mails</li>
+      <li>Chat zwischen Fahrschule, Fahrlehrern und Fahrschülern (Einzel- und Gruppenchats) samt Meldung und Blockieren</li>
+      <li>Ausbildungsnachweise und Aufbewahrung nach § 31 FahrlG, Anwesenheit im Theorieunterricht</li>
+      <li>Verwaltung von Preislisten, Abrechnungen, Rechnungen und Zahlungssalden zwischen Fahrschule und Fahrschüler</li>
       <li>Optionale Synchronisation mit dem Gerätekalender</li>
       <li>Speicherung und Hosting der Daten in der App-Datenbank (Firebase/Google Cloud)</li>
     </ul>
@@ -136,12 +138,14 @@
 
   <div class="section">
     <h2>§ 3 Kategorien betroffener Personen und Daten</h2>
-    <p><strong>Betroffene Personen:</strong> Fahrlehrer, Mitarbeiter (Manager/Staff) und Fahrschüler des Verantwortlichen.</p>
+    <p><strong>Betroffene Personen:</strong> Fahrlehrer, Mitarbeiter (Manager/Staff) und Fahrschüler des Verantwortlichen sowie die von Fahrschülern angegebenen Notfallkontakte.</p>
     <p><strong>Datenkategorien:</strong> Name, E-Mail-Adresse, Telefonnummer (optional), Wohnadresse (optional),
-      Geburtsdatum, Verfügbarkeiten/Termine, Ausbildungsfortschritt, Ausbildungsaufzeichnungen nach § 31 FahrlG
+      Geburtsdatum und -ort, Staatsangehörigkeit, angestrebte und vorhandene Führerscheinklassen, Aktennummer,
+      Notfallkontakt (Name und Telefon), Notizen der Fahrschule, Verfügbarkeiten/Termine, Ausbildungsfortschritt, Ausbildungsaufzeichnungen nach § 31 FahrlG
       (gefahrene Stunden, Teilnahme am Theorieunterricht samt Unterschrift als Linienzug, Ausbildungsende,
       Fahrlehrer-Nummer), Zahlungs- und Abrechnungsdaten (Preislisten, Zahlungen, offene Salden – keine
-      Kartendaten), Push-Notification-Token, optional Kalender-Referenz-IDs.</p>
+      Kartendaten), Rechnungen, Chat-Nachrichten (einschließlich gemeldeter Nachrichten und Blockierungen),
+      Push-Notification-Token, optional Kalender-Referenz-IDs.</p>
   </div>
 
   <div class="section">
@@ -156,6 +160,11 @@
     <p>
       Die Konfiguration und der Funktionsumfang der Software (z. B. aktivierte Module je Tarif) gelten als
       generelle Weisung des Verantwortlichen im Rahmen des Hauptvertrags.
+    </p>
+    <p>
+      Ist der Auftragsverarbeiter der Ansicht, dass eine Weisung gegen die DSGVO oder andere
+      Datenschutzvorschriften verstößt, informiert er den Verantwortlichen unverzüglich
+      (Art. 28 Abs. 3 Unterabs. 2 DSGVO).
     </p>
   </div>
 
@@ -184,16 +193,23 @@
     </p>
     <table>
       <tr><th>Unterauftragsverarbeiter</th><th>Zweck</th><th>Standort</th></tr>
-      <tr><td>Google LLC / Firebase (Google Cloud)</td><td>Hosting, Datenbank (Firestore), Authentifizierung, Push-Benachrichtigungen</td><td>EU (Region europe-west3, Frankfurt)</td></tr>
+      <tr><td>Google LLC / Firebase (Google Cloud)</td><td>Hosting, Datenbank (Firestore), Authentifizierung, Push-Benachrichtigungen</td><td>EU (Region europe-west3, Frankfurt); Firebase Authentication auch USA – auf Grundlage des EU-US Data Privacy Framework, ergänzend EU-Standardvertragsklauseln</td></tr>
       <!-- Expo seit September 2026, wie in der Datenschutzerklärung (Abschnitt 8). komoot (Photon, Abschnitt 12) steht bewusst
            nicht hier: öffentliche API ohne Vertrag, die vom Server nur Suchtexte ohne Kennung erhält – kein Unterauftragsverarbeiter nach Art. 28. -->
       <tr><td>650 Industries, Inc. („Expo")</td><td>Zustellung von Push-Benachrichtigungen (Push-Token, Titel und Text der Benachrichtigung) und Auslieferung von App-Updates</td><td>USA – auf Grundlage des EU-US Data Privacy Framework, soweit vereinbart ergänzend EU-Standardvertragsklauseln</td></tr>
       <tr><td>Stripe (Stripe Payments Europe, Ltd. / Stripe, Inc.)</td><td>Zahlungsabwicklung des Abonnements</td><td>Irland (EU) / USA – auf Grundlage von EU-Standardvertragsklauseln</td></tr>
       <tr><td>Vercel Inc.</td><td>Hosting der Web-Anwendung (Webseite, Web-Dashboard, Demo-Formular)</td><td>EU/USA – auf Grundlage von EU-Standardvertragsklauseln</td></tr>
-      <tr><td>IONOS SE</td><td>Domain-Registrierung/DNS, Hosting geschäftlicher E-Mail-Postfächer</td><td>Deutschland (EU)</td></tr>    </table>
+      <tr><td>Microsoft Ireland Operations Limited (Microsoft 365, Exchange Online)</td><td>Geschäftliche E-Mail-Postfächer (z. B. info@fahrschul-planer.de) und Versand automatischer E-Mails (Benachrichtigungen zu Demo-Anfragen, Support-Chat und Chat-Meldungen)</td><td>Deutschland (Speicherung der Postfächer in deutschen Rechenzentren); Muttergesellschaft Microsoft Corporation (USA) nach dem EU-US Data Privacy Framework zertifiziert</td></tr>
+      <tr><td>IONOS SE</td><td>Domain-Registrierung</td><td>Deutschland (EU)</td></tr>    </table>
+    <p>
+      Der Auftragsverarbeiter erlegt jedem Unterauftragsverarbeiter vertraglich dieselben
+      Datenschutzpflichten auf, die in diesem Vertrag festgelegt sind (Art. 28 Abs. 4 DSGVO).
+    </p>
     <p>
       Der Auftragsverarbeiter informiert den Verantwortlichen über die Hinzuziehung oder Ersetzung weiterer
-      Unterauftragsverarbeiter, sodass der Verantwortliche die Möglichkeit hat, Einspruch zu erheben.
+      Unterauftragsverarbeiter, sodass der Verantwortliche die Möglichkeit hat, Einspruch zu erheben. Die
+      Information erfolgt per E-Mail mindestens vier Wochen vor dem Einsatz. Widerspricht der Verantwortliche
+      innerhalb dieser Frist, kann er den Hauptvertrag zum Zeitpunkt des Einsatzes außerordentlich kündigen.
     </p>
   </div>
 
@@ -259,12 +275,25 @@
   <div class="section">
     <h2>Anlage 1: Technische und organisatorische Maßnahmen (Zusammenfassung)</h2>
     <ul>
-      <li>Verschlüsselte Datenübertragung (TLS) zwischen App/Web und Servern</li>
-      <li>Zugriffskontrollen über rollenbasierte Berechtigungen (admin/manager/staff/instructor/student) und Firestore-Sicherheitsregeln</li>
-      <li>Speicherung der Daten innerhalb der EU (Firebase-Region europe-west3, Frankfurt)</li>
-      <li>Verschlüsselte Speicherung von Passwörtern (Firebase Authentication)</li>
-      <li>Regelmäßige Aktualisierung der eingesetzten Software-Abhängigkeiten</li>
-      <li>Beschränkung des administrativen Zugriffs auf den Auftragsverarbeiter selbst</li>
+      <li><strong>Verschlüsselung:</strong> Übertragung zwischen App, Web und Servern nur verschlüsselt (TLS);
+        gespeicherte Daten verschlüsselt durch den Cloud-Anbieter (Google Cloud, Verschlüsselung ruhender Daten).</li>
+      <li><strong>Zugangskontrolle:</strong> Anmeldung über Firebase Authentication, Passwörter nur als Hash gespeichert;
+        Verwaltungszugänge zu den Cloud-Konsolen hat nur der Auftragsverarbeiter selbst. Automatische Bereitstellung
+        aus der CI ohne gespeicherte Schlüssel (Workload Identity).</li>
+      <li><strong>Zugriffskontrolle und Trennung:</strong> rollenbasierte Berechtigungen (admin/manager/staff/instructor/student),
+        durchgesetzt serverseitig in den Firestore-Sicherheitsregeln und den Server-Funktionen; jeder Datensatz gehört
+        einer Fahrschule, Zugriffe sind auf die eigene Fahrschule beschränkt. Die Regeln werden bei jeder Änderung
+        automatisch gegen rund 500 Testfälle geprüft.</li>
+      <li><strong>Speicherort:</strong> App-Datenbank in der EU (Firebase-Region europe-west3, Frankfurt); Anmeldedaten über
+        Firebase Authentication können auch in den USA verarbeitet werden.</li>
+      <li><strong>Verfügbarkeit und Wiederherstellung:</strong> tägliche Sicherung der Datenbank, 30 Tage aufbewahrt, dazu
+        Wiederherstellung auf jeden Zeitpunkt der letzten 7 Tage; Löschschutz der Datenbank; Wiederherstellung erprobt.</li>
+      <li><strong>Löschung:</strong> automatische Löschläufe nach den Aufbewahrungsfristen (u. a. § 31 FahrlG, steuerliche
+        Fristen für Abrechnungsdaten); Kontolöschung in App und Web.</li>
+      <li><strong>Eingabe- und Weitergabekontrolle:</strong> Protokollierung der Server-Funktionen (Google Cloud Logging);
+        Weitergabe an Unterauftragsverarbeiter nur nach § 7.</li>
+      <li><strong>Überprüfung:</strong> automatisierte Tests bei jeder Änderung, regelmäßige Aktualisierung der eingesetzten
+        Software-Abhängigkeiten.</li>
     </ul>
     <p style="margin-top: 10px; font-size: 13px; color: #64748b;">
       Diese Zusammenfassung kann auf Anfrage des Verantwortlichen detailliert ausgeführt werden.
